@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 import json
 import re
 from collections import Counter, defaultdict
@@ -8,11 +9,18 @@ from datetime import datetime, timezone
 from decimal import Decimal
 from typing import Any
 
+from .redaction import Redactor
 from .schema import Event, EventKind, Run
 
 ADAPTER_VERSION = "otel-1.0.0"
 PINNED_CONVENTIONS = {"otlp": "1.10.0", "otel_semconv": "1.43.0", "openinference": "2026-07-snapshot"}
 RESERVED = "_replayguard_otel"
+CONTENT_ATTRIBUTE_KEYS = ("input.value", "input", "gen_ai.input.messages", "ai.prompt.messages", "ai.prompt",
+                          "output.value", "output", "gen_ai.output.messages", "ai.response.text")
+
+
+def _hash(value: Any) -> str:
+    return hashlib.sha256(json.dumps(value, sort_keys=True, default=repr, separators=(",", ":")).encode()).hexdigest()
 
 
 def _any_value(value: Any) -> Any:
@@ -116,36 +124,59 @@ def _status(value: Any) -> str:
     return "error" if code in (2, "2", "STATUS_CODE_ERROR", "ERROR") else "ok"
 
 
-def _span_to_event(span: dict[str, Any], *, source_format: str, resource: dict[str, Any], scope: dict[str, Any]) -> tuple[str, Event]:
+def _span_to_event(span: dict[str, Any], *, source_format: str, resource: dict[str, Any], scope: dict[str, Any],
+                    capture_content: bool = True) -> tuple[str, Event]:
     context = span.get("spanContext", {})
     trace_id = str(span.get("traceId") or context.get("traceId") or "unknown-trace")
     span_id = str(span.get("spanId") or context.get("spanId") or "unknown-span")
     parent = span.get("parentSpanId") or span.get("parentSpanContext", {}).get("spanId")
-    attrs = _attributes(span.get("attributes", []))
+    redactor = Redactor()
+    # Known secret patterns are stripped regardless of capture_content, matching Recorder.
+    attrs = redactor.redact(_attributes(span.get("attributes", [])))
     start = _hr_to_iso(span.get("startTime") or span.get("startTimeUnixNano"))
     end = _hr_to_iso(span.get("endTime") or span.get("endTimeUnixNano")) if span.get("endTime") or span.get("endTimeUnixNano") else None
     request = _parse_json(attrs.get("input.value", attrs.get("input", attrs.get("gen_ai.input.messages", attrs.get("ai.prompt.messages", attrs.get("ai.prompt"))))))
     response = _parse_json(attrs.get("output.value", attrs.get("output", attrs.get("gen_ai.output.messages", attrs.get("ai.response.text")))))
+    request_hash = _hash(request) if request is not None else None
+    response_hash = _hash(response) if response is not None else None
     usage = {}
     aliases = {"input_tokens": ("gen_ai.usage.input_tokens", "llm.token_count.prompt", "ai.usage.promptTokens"),
                "output_tokens": ("gen_ai.usage.output_tokens", "llm.token_count.completion", "ai.usage.completionTokens")}
     for target, keys in aliases.items():
         for key in keys:
             if key in attrs: usage[target] = int(attrs[key]); break
-    metadata = {"adapter_version": ADAPTER_VERSION, "source_format": source_format, "raw_span": copy.deepcopy(span),
-                "resource": copy.deepcopy(resource), "scope": copy.deepcopy(scope), "original_started_at": start,
-                "original_ended_at": end, "original_name": span.get("name", "unnamed")}
+    if capture_content:
+        metadata = {"adapter_version": ADAPTER_VERSION, "source_format": source_format,
+                    "raw_span": redactor.redact(copy.deepcopy(span)), "resource": redactor.redact(copy.deepcopy(resource)),
+                    "scope": redactor.redact(copy.deepcopy(scope)), "original_started_at": start,
+                    "original_ended_at": end, "original_name": span.get("name", "unnamed")}
+    else:
+        # No raw_span/resource/scope: those duplicate the same prompt/response content this
+        # branch is stripping, and re-export fidelity is an accepted tradeoff for not capturing
+        # content, matching Recorder's capture_content=False behavior elsewhere in the SDK.
+        metadata = {"adapter_version": ADAPTER_VERSION, "source_format": source_format, "content_captured": False,
+                    "original_started_at": start, "original_ended_at": end, "original_name": span.get("name", "unnamed")}
+        attrs = {key: value for key, value in attrs.items() if key not in CONTENT_ATTRIBUTE_KEYS}
     attrs[RESERVED] = metadata
     event = Event(_kind(str(span.get("name", "unnamed")), attrs), str(span.get("name", "unnamed")), id=span_id,
                   parent_id=str(parent) if parent else None, started_at=start, ended_at=end, status=_status(span.get("status", {})),
-                  attributes=attrs, request=request, response=response, usage=usage,
+                  attributes=attrs, request=request if capture_content else None,
+                  response=response if capture_content else None,
+                  request_hash=request_hash, response_hash=response_hash, usage=usage,
                   error={"message": span.get("status", {}).get("message", "OpenTelemetry span error")} if _status(span.get("status", {})) == "error" else None)
     if end: event.latency_ms = max(0, (datetime.fromisoformat(end) - datetime.fromisoformat(start)).total_seconds() * 1000)
     return trace_id, event
 
 
-def import_traces(document: Any) -> list[Run]:
-    """Import standard OTLP/JSON or OpenTelemetry JS flat-span JSON."""
+def import_traces(document: Any, *, capture_content: bool = True) -> list[Run]:
+    """Import standard OTLP/JSON or OpenTelemetry JS flat-span JSON.
+
+    capture_content defaults to True here because most callers (benchmark tooling, research
+    experiments, round-trip fidelity tests) need real span content to do their job and already
+    operate on authorized/public corpora. The CLI's `otel import` command, which persists
+    arbitrary user-supplied traces into local storage, explicitly opts into False by default
+    to match the rest of the SDK's content-off-by-default privacy posture (see cli.py).
+    """
     spans: list[tuple[dict[str, Any], str, dict[str, Any], dict[str, Any]]] = []
     if isinstance(document, list):
         spans = [(item, "otel-js-flat", {}, {}) for item in document]
@@ -161,7 +192,9 @@ def import_traces(document: Any) -> list[Run]:
     else: raise ValueError("expected OTLP resourceSpans, a spans container, or a flat span array")
     grouped: dict[str, list[Event]] = defaultdict(list)
     for span, source_format, resource, scope in spans:
-        trace_id, event = _span_to_event(span, source_format=source_format, resource=resource, scope=scope); grouped[trace_id].append(event)
+        trace_id, event = _span_to_event(span, source_format=source_format, resource=resource, scope=scope,
+                                          capture_content=capture_content)
+        grouped[trace_id].append(event)
     runs = []
     for trace_id, events in grouped.items():
         events.sort(key=lambda item: (item.started_at, item.id))

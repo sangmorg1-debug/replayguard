@@ -25,9 +25,22 @@ def make_suite(tmp_path):
     return suite, case, path
 
 
+def make_unchanged_candidate_map(tmp_path, case):
+    """A real (identical-to-baseline) candidate, for tests exercising the legitimate pass path.
+
+    With no candidate_map at all, run_ci can no longer report SAFE TO MERGE for cases with
+    configured evaluations (see suites.SuiteRunner.run) - that would silently compare the
+    baseline against itself. Tests that mean to exercise a genuine pass must supply one.
+    """
+    path = tmp_path / "candidates.json"
+    path.write_text(json.dumps({case.id: case.source_run}))
+    return path
+
+
 def test_ci_pass_emits_hash_addressed_private_evidence(tmp_path):
     suite, case, path = make_suite(tmp_path)
-    result = run_ci(path, output_dir=tmp_path / "report", commit_sha="abc123")
+    candidates = make_unchanged_candidate_map(tmp_path, case)
+    result = run_ci(path, candidate_map=candidates, output_dir=tmp_path / "report", commit_sha="abc123")
     assert result.passed and result.selected_cases == 1
     assert result.bundle_sha256 in result.bundle_path.name
     evidence = json.loads(result.bundle_path.read_text())
@@ -63,9 +76,19 @@ def test_changed_case_selection_matches_paths_and_keeps_unscoped_cases(tmp_path)
 
 
 def test_ci_cli_exit_codes(tmp_path, capsys):
-    _, _, path = make_suite(tmp_path)
-    assert main(["ci", "--suite", str(path), "--output", str(tmp_path / "out")]) == 0
+    _, case, path = make_suite(tmp_path)
+    candidates = make_unchanged_candidate_map(tmp_path, case)
+    assert main(["ci", "--suite", str(path), "--candidate-map", str(candidates), "--output", str(tmp_path / "out")]) == 0
     assert '"passed": true' in capsys.readouterr().out.lower()
+
+
+def test_ci_without_a_candidate_map_does_not_silently_report_safe_to_merge(tmp_path, capsys):
+    """The regression this guards: previously, omitting --candidate-map entirely made every
+    configured evaluation trivially compare the baseline against itself and pass."""
+    _, _, path = make_suite(tmp_path)
+    assert main(["ci", "--suite", str(path), "--output", str(tmp_path / "out")]) == 1
+    output = capsys.readouterr().out.lower()
+    assert '"passed": false' in output
 
 
 def test_workflow_is_fork_safe_and_locally_runnable():

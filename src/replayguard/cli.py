@@ -3,7 +3,18 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from importlib import resources
 from pathlib import Path
+
+
+def _packaged_schema(name: str) -> str:
+    """Resolve a bundled schema/contract file's path regardless of install method.
+
+    Editable installs and wheel installs both expose this correctly via importlib.resources,
+    unlike a __file__-relative walk up to a sibling schemas/ directory, which only exists
+    next to the package in an editable/source-tree install.
+    """
+    return str(resources.files("replayguard.schemas").joinpath(name))
 
 from .assertions import Assertion
 from .compare import compare_runs
@@ -116,7 +127,7 @@ def build_parser() -> argparse.ArgumentParser:
     rag_compare.add_argument("left"); rag_compare.add_argument("right")
     rag_bom = rag_sub.add_parser("aibom")
     rag_bom.add_argument("--manifest", required=True); rag_bom.add_argument("--output", default=".verify/aibom.json")
-    rag_bom.add_argument("--schema", default=str(Path(__file__).resolve().parents[2] / "schemas" / "aibom-v1.schema.json"))
+    rag_bom.add_argument("--schema", default=_packaged_schema("aibom-v1.schema.json"))
     cost = sub.add_parser("cost", help="analyze verified cost per successful task")
     cost_sub = cost.add_subparsers(dest="cost_command", required=True)
     cost_analyze = cost_sub.add_parser("analyze")
@@ -135,10 +146,12 @@ def build_parser() -> argparse.ArgumentParser:
     ga_backup = ga_sub.add_parser("backup"); ga_backup.add_argument("--database", required=True); ga_backup.add_argument("--output", required=True)
     ga_restore = ga_sub.add_parser("restore-copy"); ga_restore.add_argument("--backup", required=True); ga_restore.add_argument("--output", required=True)
     ga_ready = ga_sub.add_parser("readiness"); ga_ready.add_argument("--database", required=True)
-    ga_ready.add_argument("--contract", default=str(Path(__file__).resolve().parents[2] / "schemas/public-api-v1.contract.json"))
+    ga_ready.add_argument("--contract", default=_packaged_schema("public-api-v1.contract.json"))
     otel = sub.add_parser("otel", help="import and export OTLP/OpenInference traces")
     otel_sub = otel.add_subparsers(dest="otel_command", required=True)
     otel_import = otel_sub.add_parser("import"); otel_import.add_argument("path")
+    otel_import.add_argument("--capture-content", action="store_true",
+                             help="persist real prompt/response content from imported spans (off by default, matching `verify record`)")
     otel_export = otel_sub.add_parser("export"); otel_export.add_argument("run_ids", nargs="+"); otel_export.add_argument("--output", required=True)
     otel_cov = otel_sub.add_parser("coverage"); otel_cov.add_argument("path")
     otel_round = otel_sub.add_parser("roundtrip"); otel_round.add_argument("path"); otel_round.add_argument("--output")
@@ -385,7 +398,7 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "otel":
             if args.otel_command in {"import", "coverage", "roundtrip"}:
                 document = json.loads(Path(args.path).read_text(encoding="utf-8"))
-                runs = import_traces(document)
+                runs = import_traces(document, capture_content=getattr(args, "capture_content", True))
             if args.otel_command == "import":
                 store.init()
                 for run in runs: store.save_run(run)

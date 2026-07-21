@@ -31,6 +31,19 @@ def test_decorators_capture_and_redact(tmp_path):
     assert "sk-" not in repr(event.response)
 
 
+def test_top_level_exception_message_is_redacted(tmp_path):
+    store = LocalStore(tmp_path)
+    try:
+        with Recorder("failing", store=store) as recorder:
+            raise RuntimeError("Authentication failed for token sk-abcdefghijklmnopqrstuvwxyz")
+    except RuntimeError:
+        pass
+    loaded = store.load_run(recorder.run.id)
+    error_events = [event for event in loaded.events if event.kind == EventKind.ERROR]
+    assert error_events, "Recorder.__exit__ did not record the top-level exception"
+    assert "sk-abcdefghijklmnopqrstuvwxyz" not in error_events[0].error["message"]
+
+
 def test_exact_replay_has_no_live_path(tmp_path):
     called = 0
     source = Run("source")
