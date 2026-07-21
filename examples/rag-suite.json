@@ -1,0 +1,13 @@
+{
+  "name": "public-health-rag",
+  "thresholds": {"freshness_days": 730, "support_threshold": 0.45},
+  "context": {"model": "example-model-v1", "prompt": "Answer only from retrieved evidence.", "index_version": "health-2026-01", "embedding_model": "example-embed-v2", "ingestion_pipeline": "docs-main@abc123"},
+  "cases": [{
+    "id": "who-handwashing",
+    "query": "What is one benefit of hand hygiene?",
+    "answer": "Hand hygiene helps prevent avoidable infections. [who-1]",
+    "tenant_id": "public", "principal_id": "reader", "expected_document_ids": ["who"],
+    "documents": [{"id": "who", "title": "Hand hygiene", "text": "Hand hygiene is one of the most effective actions to reduce the spread of pathogens and prevent infections.", "source_uri": "https://www.who.int/teams/integrated-health-services/infection-prevention-control/hand-hygiene", "version": "2026-01", "updated_at": "2026-01-01T00:00:00+00:00", "authority": 1.0, "tenant_id": "public", "allowed_principals": ["reader"], "license": "WHO terms"}],
+    "retrieved": [{"id": "who-1", "document_id": "who", "text": "Hand hygiene is one of the most effective actions to reduce the spread of pathogens and prevent infections.", "score": 0.98, "rank": 1, "tenant_id": "public"}]
+  }]
+}

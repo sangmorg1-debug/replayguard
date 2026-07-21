@@ -1,0 +1,53 @@
+{
+  "version": "1.0.0",
+  "limits": {
+    "calls_per_minute": 120,
+    "max_retries": 3,
+    "max_recursion": 5,
+    "max_cost_usd": 1.0
+  },
+  "constraints": {
+    "approved_roots": ["."],
+    "approved_domains": ["api.example.com"],
+    "max_transaction_usd": 100
+  },
+  "rules": [
+    {
+      "id": "project-read",
+      "priority": 100,
+      "match": {"tool": ["filesystem.read*", "search.*"], "action": ["read", "search", "list"], "max_risk": "medium"},
+      "effect": "allow",
+      "reason": "Read-only project access"
+    },
+    {
+      "id": "database-read",
+      "priority": 90,
+      "match": {"tool": "database", "action": "select", "max_risk": "medium"},
+      "effect": "allow",
+      "reason": "Database reads are allowed"
+    },
+    {
+      "id": "safe-network",
+      "priority": 80,
+      "match": {"tool": "http.fetch", "action": "get", "max_risk": "medium"},
+      "effect": "rewrite",
+      "rewrite": {"remove": ["authorization", "cookie"]},
+      "reason": "Approved GET with credentials removed"
+    },
+    {
+      "id": "sandbox-code",
+      "priority": 70,
+      "match": {"tool": "code.execute", "environment": ["development", "test"]},
+      "effect": "sandbox",
+      "reason": "Code execution is isolated"
+    },
+    {
+      "id": "pii-escalation",
+      "priority": 60,
+      "match": {"data_classification": ["restricted", "pii"]},
+      "effect": "escalate",
+      "reason": "Sensitive data requires human security review"
+    }
+  ]
+}
+

@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "replayguard"
+version = "1.0.0"
+description = "Local-first capture, fixture replay, and verification for AI applications"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+dependencies = [
+  "jsonschema>=4.23",
+  "fastapi>=0.116",
+  "uvicorn>=0.35",
+  "cryptography>=45"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-cov>=5", "httpx>=0.28"]
+semantic = ["lettucedetect==0.2.2", "huggingface-hub>=1.5,<2"]
+scale = ["pyarrow>=18,<24"]
+experiment = ["scikit-learn==1.8.0"]
+prefill = ["torch>=2.7,<3", "transformers>=4.51,<6", "huggingface-hub>=1.5,<2"]
+
+[project.scripts]
+verify = "replayguard.cli:main"
+
+[project.entry-points.pytest11]
+replayguard = "replayguard.pytest_plugin"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = ["network: opt-in test that verifies pinned public upstream data"]

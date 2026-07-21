@@ -1,0 +1,13 @@
+{
+  "run": {
+    "id": "rag-example",
+    "name": "RAG answer",
+    "status": "ok",
+    "events": [
+      {"kind": "retrieval", "name": "policy-index.search", "attributes": {"index_version": "2026-07-19"}, "latency_ms": 12},
+      {"kind": "model", "name": "answer", "attributes": {"model": "example-model"}, "latency_ms": 80, "cost_usd": 0.002}
+    ]
+  },
+  "capture_content": false
+}
+

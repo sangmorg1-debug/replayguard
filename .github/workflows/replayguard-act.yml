@@ -1,0 +1,23 @@
+name: ReplayGuard local smoke
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  local-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - uses: ./
+        with:
+          suite: examples/public-regression-suite.json
+          changed-only: "false"
+

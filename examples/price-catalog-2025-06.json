@@ -1,0 +1,11 @@
+{
+  "version": "2025-06-official-snapshot",
+  "effective_at": "2025-06-01T00:00:00Z",
+  "currency": "USD",
+  "notice": "Immutable reproducibility snapshot. Verify current provider prices before production use.",
+  "models": [
+    {"provider": "openai", "model": "gpt-4.1-mini", "token_unit": 1000000, "input_usd": 0.40, "cached_input_usd": 0.10, "output_usd": 1.60, "source": "https://openai.com/api/pricing/"},
+    {"provider": "anthropic", "model": "claude-sonnet-4-20250514", "token_unit": 1000000, "input_usd": 3.00, "cached_input_usd": 0.30, "output_usd": 15.00, "source": "https://platform.claude.com/docs/en/about-claude/pricing"},
+    {"provider": "google", "model": "gemini-2.5-flash", "token_unit": 1000000, "input_usd": 0.30, "cached_input_usd": 0.075, "output_usd": 2.50, "source": "https://ai.google.dev/gemini-api/docs/pricing"}
+  ]
+}

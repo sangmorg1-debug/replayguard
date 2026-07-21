@@ -1,0 +1,17 @@
+{
+  "name": "@replayguard/sdk",
+  "version": "1.0.0",
+  "description": "Dependency-light TypeScript recorder and exact replay client for ReplayGuard v1 traces",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "exports": {".": {"types": "./dist/src/index.d.ts", "import": "./dist/src/index.js"}},
+  "files": ["dist", "README.md"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test test/*.test.mjs"
+  },
+  "engines": {"node": ">=20"},
+  "devDependencies": {"@types/node": "22.15.30", "typescript": "5.9.3"},
+  "license": "Apache-2.0"
+}

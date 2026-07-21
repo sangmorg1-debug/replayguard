@@ -1,0 +1,45 @@
+name: ReplayGuard
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out untrusted revision without credentials
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Set up Node for cross-language conformance
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: sdk/typescript/package-lock.json
+      - name: Build and test TypeScript SDK
+        working-directory: sdk/typescript
+        run: npm ci && npm test
+      - name: Run ReplayGuard
+        uses: ./
+        with:
+          suite: examples/public-regression-suite.json
+          changed-only: "true"
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: replayguard-evidence-${{ github.run_id }}
+          path: .verify/report/
+          if-no-files-found: error
+          retention-days: 14

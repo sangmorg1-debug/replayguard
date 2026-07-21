@@ -1,0 +1,4007 @@
+{
+  "dataset": "openai/summarize-from-feedback human comparisons",
+  "source": "https://github.com/openai/summarize-from-feedback",
+  "license": "MIT",
+  "records": [
+    {
+      "id": "t3_js7re:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 140,
+      "output_tokens": 43,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_js7re:comparison-0",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_js7re:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 140,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_js7re:comparison-0",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_js7re:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 140,
+      "output_tokens": 38,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_js7re:comparison-1",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 8,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_js7re:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 140,
+      "output_tokens": 43,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_js7re:comparison-1",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 8,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_js7re:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 140,
+      "output_tokens": 38,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_js7re:comparison-2",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_js7re:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 140,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_js7re:comparison-2",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_js7re:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 140,
+      "output_tokens": 43,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_js7re:comparison-3",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_js7re:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 140,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_js7re:comparison-3",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_js7re:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 140,
+      "output_tokens": 38,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_js7re:comparison-4",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 8,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_js7re:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 140,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_js7re:comparison-4",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 8,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_js7re:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 140,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_js7re:comparison-5",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_js7re:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 140,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_js7re:comparison-5",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ru5iw:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 398,
+      "output_tokens": 32,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2ru5iw:comparison-6",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ru5iw:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 398,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2ru5iw:comparison-6",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ru5iw:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 398,
+      "output_tokens": 44,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2ru5iw:comparison-7",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ru5iw:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 398,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2ru5iw:comparison-7",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ru5iw:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 398,
+      "output_tokens": 39,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2ru5iw:comparison-8",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ru5iw:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 398,
+      "output_tokens": 44,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2ru5iw:comparison-8",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ru5iw:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 398,
+      "output_tokens": 39,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2ru5iw:comparison-9",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ru5iw:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 398,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2ru5iw:comparison-9",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ru5iw:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 398,
+      "output_tokens": 39,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2ru5iw:comparison-10",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ru5iw:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 398,
+      "output_tokens": 32,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2ru5iw:comparison-10",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ru5iw:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 398,
+      "output_tokens": 32,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2ru5iw:comparison-11",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ru5iw:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 398,
+      "output_tokens": 44,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2ru5iw:comparison-11",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_my4nv:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 328,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_my4nv:comparison-12",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_my4nv:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 328,
+      "output_tokens": 26,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_my4nv:comparison-12",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_my4nv:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 328,
+      "output_tokens": 26,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_my4nv:comparison-13",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_my4nv:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 328,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_my4nv:comparison-13",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_my4nv:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 328,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_my4nv:comparison-14",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_my4nv:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 328,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_my4nv:comparison-14",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_my4nv:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 328,
+      "output_tokens": 44,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_my4nv:comparison-15",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 3,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_my4nv:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 328,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_my4nv:comparison-15",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 3,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_my4nv:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 328,
+      "output_tokens": 26,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_my4nv:comparison-16",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 7,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_my4nv:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 328,
+      "output_tokens": 44,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_my4nv:comparison-16",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 7,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_my4nv:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 328,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_my4nv:comparison-17",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 3,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_my4nv:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 328,
+      "output_tokens": 44,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_my4nv:comparison-17",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 3,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_rf7we:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 240,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_rf7we:comparison-18",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_rf7we:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 240,
+      "output_tokens": 34,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_rf7we:comparison-18",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_rf7we:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 240,
+      "output_tokens": 38,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_rf7we:comparison-19",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 7,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_rf7we:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 240,
+      "output_tokens": 34,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_rf7we:comparison-19",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 7,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_rf7we:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 240,
+      "output_tokens": 38,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_rf7we:comparison-20",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_rf7we:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 240,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_rf7we:comparison-20",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_rf7we:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 240,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_rf7we:comparison-21",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_rf7we:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 240,
+      "output_tokens": 18,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_rf7we:comparison-21",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_rf7we:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 240,
+      "output_tokens": 38,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_rf7we:comparison-22",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_rf7we:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 240,
+      "output_tokens": 18,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_rf7we:comparison-22",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_rf7we:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 240,
+      "output_tokens": 34,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_rf7we:comparison-23",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_rf7we:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 240,
+      "output_tokens": 18,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_rf7we:comparison-23",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_457213:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 218,
+      "output_tokens": 40,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_457213:comparison-24",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_457213:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 218,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_457213:comparison-24",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_457213:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 218,
+      "output_tokens": 40,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_457213:comparison-25",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_457213:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 218,
+      "output_tokens": 34,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_457213:comparison-25",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_457213:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 218,
+      "output_tokens": 40,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_457213:comparison-26",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_457213:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 218,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_457213:comparison-26",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_457213:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 218,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_457213:comparison-27",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_457213:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 218,
+      "output_tokens": 34,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_457213:comparison-27",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_457213:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 218,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_457213:comparison-28",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_457213:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 218,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_457213:comparison-28",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_s6ll0:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 393,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_s6ll0:comparison-29",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_s6ll0:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 393,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_s6ll0:comparison-29",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_s6ll0:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 393,
+      "output_tokens": 55,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_s6ll0:comparison-30",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_s6ll0:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 393,
+      "output_tokens": 30,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_s6ll0:comparison-30",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_s6ll0:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 393,
+      "output_tokens": 55,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_s6ll0:comparison-31",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_s6ll0:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 393,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_s6ll0:comparison-31",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_s6ll0:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 393,
+      "output_tokens": 30,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_s6ll0:comparison-32",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_s6ll0:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 393,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_s6ll0:comparison-32",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_s6ll0:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 393,
+      "output_tokens": 55,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_s6ll0:comparison-33",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_s6ll0:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 393,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_s6ll0:comparison-33",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_s6ll0:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 393,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_s6ll0:comparison-34",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 7,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_s6ll0:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 393,
+      "output_tokens": 30,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_s6ll0:comparison-34",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 7,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2kwia3:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 221,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2kwia3:comparison-35",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2kwia3:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 221,
+      "output_tokens": 26,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2kwia3:comparison-35",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2kwia3:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 221,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2kwia3:comparison-36",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2kwia3:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 221,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2kwia3:comparison-36",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2kwia3:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 221,
+      "output_tokens": 26,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2kwia3:comparison-37",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2kwia3:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 221,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2kwia3:comparison-37",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2kwia3:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 221,
+      "output_tokens": 22,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2kwia3:comparison-38",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2kwia3:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 221,
+      "output_tokens": 26,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2kwia3:comparison-38",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2kwia3:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 221,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2kwia3:comparison-39",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2kwia3:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 221,
+      "output_tokens": 22,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2kwia3:comparison-39",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2kwia3:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 221,
+      "output_tokens": 22,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2kwia3:comparison-40",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2kwia3:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 221,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2kwia3:comparison-40",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ytb9s:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 214,
+      "output_tokens": 42,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2ytb9s:comparison-41",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ytb9s:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 214,
+      "output_tokens": 46,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2ytb9s:comparison-41",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ytb9s:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 214,
+      "output_tokens": 46,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2ytb9s:comparison-42",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ytb9s:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 214,
+      "output_tokens": 23,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2ytb9s:comparison-42",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ytb9s:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 214,
+      "output_tokens": 46,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2ytb9s:comparison-43",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ytb9s:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 214,
+      "output_tokens": 46,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2ytb9s:comparison-43",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ytb9s:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 214,
+      "output_tokens": 46,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2ytb9s:comparison-44",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ytb9s:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 214,
+      "output_tokens": 42,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2ytb9s:comparison-44",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ytb9s:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 214,
+      "output_tokens": 23,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2ytb9s:comparison-45",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ytb9s:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 214,
+      "output_tokens": 46,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2ytb9s:comparison-45",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ytb9s:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 214,
+      "output_tokens": 42,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2ytb9s:comparison-46",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2ytb9s:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 214,
+      "output_tokens": 23,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2ytb9s:comparison-46",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_17w4t0:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 400,
+      "output_tokens": 52,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_17w4t0:comparison-47",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_17w4t0:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 400,
+      "output_tokens": 39,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_17w4t0:comparison-47",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_17w4t0:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 400,
+      "output_tokens": 31,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_17w4t0:comparison-48",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_17w4t0:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 400,
+      "output_tokens": 52,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_17w4t0:comparison-48",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_17w4t0:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 400,
+      "output_tokens": 39,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_17w4t0:comparison-49",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_17w4t0:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 400,
+      "output_tokens": 39,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_17w4t0:comparison-49",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_17w4t0:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 400,
+      "output_tokens": 31,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_17w4t0:comparison-50",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_17w4t0:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 400,
+      "output_tokens": 39,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_17w4t0:comparison-50",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_17w4t0:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 400,
+      "output_tokens": 31,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_17w4t0:comparison-51",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_17w4t0:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 400,
+      "output_tokens": 39,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_17w4t0:comparison-51",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_17w4t0:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 400,
+      "output_tokens": 52,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_17w4t0:comparison-52",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_17w4t0:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 400,
+      "output_tokens": 39,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_17w4t0:comparison-52",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4pn0hn:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 486,
+      "output_tokens": 35,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_4pn0hn:comparison-53",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4pn0hn:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 486,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_4pn0hn:comparison-53",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4pn0hn:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 486,
+      "output_tokens": 46,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_4pn0hn:comparison-54",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 7,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4pn0hn:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 486,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_4pn0hn:comparison-54",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 7,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4pn0hn:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 486,
+      "output_tokens": 30,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_4pn0hn:comparison-55",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 3,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4pn0hn:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 486,
+      "output_tokens": 46,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_4pn0hn:comparison-55",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 3,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4pn0hn:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 486,
+      "output_tokens": 30,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_4pn0hn:comparison-56",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4pn0hn:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 486,
+      "output_tokens": 35,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_4pn0hn:comparison-56",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4pn0hn:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 486,
+      "output_tokens": 46,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_4pn0hn:comparison-57",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4pn0hn:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 486,
+      "output_tokens": 35,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_4pn0hn:comparison-57",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4pn0hn:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 486,
+      "output_tokens": 30,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_4pn0hn:comparison-58",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4pn0hn:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 486,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_4pn0hn:comparison-58",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3cj3cv:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 432,
+      "output_tokens": 34,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_3cj3cv:comparison-59",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3cj3cv:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 432,
+      "output_tokens": 34,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_3cj3cv:comparison-59",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3cj3cv:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 432,
+      "output_tokens": 38,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_3cj3cv:comparison-60",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3cj3cv:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 432,
+      "output_tokens": 34,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_3cj3cv:comparison-60",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3cj3cv:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 432,
+      "output_tokens": 34,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_3cj3cv:comparison-61",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 8,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3cj3cv:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 432,
+      "output_tokens": 46,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_3cj3cv:comparison-61",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 8,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3cj3cv:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 432,
+      "output_tokens": 38,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_3cj3cv:comparison-62",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 8,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3cj3cv:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 432,
+      "output_tokens": 46,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_3cj3cv:comparison-62",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 8,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3cj3cv:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 432,
+      "output_tokens": 34,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_3cj3cv:comparison-63",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3cj3cv:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 432,
+      "output_tokens": 38,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_3cj3cv:comparison-63",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3cj3cv:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 432,
+      "output_tokens": 34,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_3cj3cv:comparison-64",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3cj3cv:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 432,
+      "output_tokens": 46,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_3cj3cv:comparison-64",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3bqim4:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 430,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_3bqim4:comparison-65",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3bqim4:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 430,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_3bqim4:comparison-65",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3bqim4:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 430,
+      "output_tokens": 35,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_3bqim4:comparison-66",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3bqim4:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 430,
+      "output_tokens": 34,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_3bqim4:comparison-66",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3bqim4:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 430,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_3bqim4:comparison-67",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3bqim4:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 430,
+      "output_tokens": 35,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_3bqim4:comparison-67",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3bqim4:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 430,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_3bqim4:comparison-68",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3bqim4:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 430,
+      "output_tokens": 34,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_3bqim4:comparison-68",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3bqim4:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 430,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_3bqim4:comparison-69",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3bqim4:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 430,
+      "output_tokens": 34,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_3bqim4:comparison-69",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3bqim4:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 430,
+      "output_tokens": 35,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_3bqim4:comparison-70",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 3,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_3bqim4:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 430,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_3bqim4:comparison-70",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 3,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4w9i88:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 276,
+      "output_tokens": 31,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_4w9i88:comparison-71",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4w9i88:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 276,
+      "output_tokens": 39,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_4w9i88:comparison-71",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4w9i88:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 276,
+      "output_tokens": 46,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_4w9i88:comparison-72",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 8,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4w9i88:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 276,
+      "output_tokens": 31,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_4w9i88:comparison-72",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 8,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4w9i88:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 276,
+      "output_tokens": 34,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_4w9i88:comparison-73",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4w9i88:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 276,
+      "output_tokens": 46,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_4w9i88:comparison-73",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4w9i88:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 276,
+      "output_tokens": 34,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_4w9i88:comparison-74",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 7,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_4w9i88:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 276,
+      "output_tokens": 31,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_4w9i88:comparison-74",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 7,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_10nbbm:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 277,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_10nbbm:comparison-75",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 8,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_10nbbm:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 277,
+      "output_tokens": 31,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_10nbbm:comparison-75",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 8,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_10nbbm:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 277,
+      "output_tokens": 31,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_10nbbm:comparison-76",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_10nbbm:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 277,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_10nbbm:comparison-76",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_10nbbm:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 277,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_10nbbm:comparison-77",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_10nbbm:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 277,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_10nbbm:comparison-77",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_10nbbm:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 277,
+      "output_tokens": 31,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_10nbbm:comparison-78",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_10nbbm:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 277,
+      "output_tokens": 21,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_10nbbm:comparison-78",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 2,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_10nbbm:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 277,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_10nbbm:comparison-79",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_10nbbm:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 277,
+      "output_tokens": 21,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_10nbbm:comparison-79",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_10nbbm:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 277,
+      "output_tokens": 21,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_10nbbm:comparison-80",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_10nbbm:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 277,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_10nbbm:comparison-80",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2eqmlc:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 179,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2eqmlc:comparison-81",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2eqmlc:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 179,
+      "output_tokens": 40,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2eqmlc:comparison-81",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2eqmlc:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 179,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2eqmlc:comparison-82",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2eqmlc:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 179,
+      "output_tokens": 40,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2eqmlc:comparison-82",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2eqmlc:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 179,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2eqmlc:comparison-83",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2eqmlc:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 179,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2eqmlc:comparison-83",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2eqmlc:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 179,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2eqmlc:comparison-84",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2eqmlc:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 179,
+      "output_tokens": 26,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2eqmlc:comparison-84",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2eqmlc:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 179,
+      "output_tokens": 40,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2eqmlc:comparison-85",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 3,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2eqmlc:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 179,
+      "output_tokens": 26,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2eqmlc:comparison-85",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 3,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2eqmlc:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 179,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2eqmlc:comparison-86",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2eqmlc:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 179,
+      "output_tokens": 26,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2eqmlc:comparison-86",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2w9moq:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 157,
+      "output_tokens": 39,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2w9moq:comparison-87",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2w9moq:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 157,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2w9moq:comparison-87",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2w9moq:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 157,
+      "output_tokens": 39,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2w9moq:comparison-88",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2w9moq:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 157,
+      "output_tokens": 30,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2w9moq:comparison-88",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2w9moq:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 157,
+      "output_tokens": 31,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2w9moq:comparison-89",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2w9moq:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 157,
+      "output_tokens": 30,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2w9moq:comparison-89",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2w9moq:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 157,
+      "output_tokens": 31,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2w9moq:comparison-90",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2w9moq:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 157,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2w9moq:comparison-90",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2w9moq:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 157,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2w9moq:comparison-91",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 3,
+        "policy": "sup4_6b",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2w9moq:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 157,
+      "output_tokens": 30,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2w9moq:comparison-91",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 3,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2w9moq:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 157,
+      "output_tokens": 31,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2w9moq:comparison-92",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2w9moq:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 157,
+      "output_tokens": 39,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2w9moq:comparison-92",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_t0.7",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2zgyh0:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 468,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2zgyh0:comparison-93",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2zgyh0:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 468,
+      "output_tokens": 46,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2zgyh0:comparison-93",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 1,
+        "policy": "sup4_6b_t1",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2zgyh0:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 468,
+      "output_tokens": 46,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2zgyh0:comparison-94",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 7,
+        "policy": "sup4_6b_t1",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2zgyh0:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 468,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2zgyh0:comparison-94",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 7,
+        "policy": "sup4_6b_t.5",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2zgyh0:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 468,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2zgyh0:comparison-95",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2zgyh0:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 468,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2zgyh0:comparison-95",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 4,
+        "policy": "sup4_6b_t.3",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2zgyh0:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 468,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2zgyh0:comparison-96",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_t.5",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2zgyh0:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 468,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2zgyh0:comparison-96",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 6,
+        "policy": "sup4_6b_t.3",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2zgyh0:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 468,
+      "output_tokens": 46,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2zgyh0:comparison-97",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b_t1",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2zgyh0:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 468,
+      "output_tokens": 29,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2zgyh0:comparison-97",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 9,
+        "policy": "sup4_6b_t.3",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2zgyh0:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 468,
+      "output_tokens": 27,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_2zgyh0:comparison-98",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 3,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_2zgyh0:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 468,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_2zgyh0:comparison-98",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 3,
+        "policy": "sup4_6b_t.5",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_10o1a3:0",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 290,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "success": false,
+      "quality_score": 0.0,
+      "latency_ms": 0,
+      "configuration": "candidate-0",
+      "feature": "summarization",
+      "task": "t3_10o1a3:comparison-99",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 7,
+        "policy": "sup4_6b_p.95",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    },
+    {
+      "id": "t3_10o1a3:1",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "input_tokens": 290,
+      "output_tokens": 31,
+      "cached_input_tokens": 0,
+      "success": true,
+      "quality_score": 1.0,
+      "latency_ms": 0,
+      "configuration": "candidate-1",
+      "feature": "summarization",
+      "task": "t3_10o1a3:comparison-99",
+      "repository": "openai/summarize-from-feedback",
+      "metadata": {
+        "human_confidence": 7,
+        "policy": "ref",
+        "token_measurement": "word-count approximation x1.3"
+      }
+    }
+  ]
+}

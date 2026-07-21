@@ -1,0 +1,14 @@
+{
+  "run": {
+    "id": "mcp-example",
+    "name": "MCP tool execution",
+    "status": "ok",
+    "events": [
+      {"kind": "tool_proposal", "name": "filesystem.read_file", "attributes": {"protocol": "mcp"}},
+      {"kind": "authorization", "name": "filesystem.policy", "response": {"decision": "allow"}},
+      {"kind": "tool", "name": "filesystem.read_file", "latency_ms": 4.2, "cost_usd": 0}
+    ]
+  },
+  "capture_content": false
+}
+

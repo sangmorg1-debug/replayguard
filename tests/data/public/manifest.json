@@ -1,0 +1,104 @@
+{
+  "generated_by": "tools/fetch_real_data.py",
+  "sources": {
+    "bfcl_cases": {
+      "project": "Berkeley Function Calling Leaderboard v4",
+      "license": "Apache-2.0",
+      "commit": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+      "url": "https://raw.githubusercontent.com/ShishirPatil/gorilla/6ea57973c7a6097fd7c5915698c54c17c5b1b6c8/berkeley-function-call-leaderboard/bfcl_eval/data/BFCL_v4_live_simple.json",
+      "sha256": "1af2ac87dca47556db7b7e37e51e28b459a38b594e3c7b3c792b4903598ca0c4",
+      "format": "jsonl",
+      "limit": 60,
+      "file": "bfcl_cases.jsonl",
+      "curated_sha256": "f44b372f8133e1d53c2e8df3f762ccb665266ff1e56b86fb22eac220e887cb74"
+    },
+    "bfcl_answers": {
+      "project": "Berkeley Function Calling Leaderboard v4",
+      "license": "Apache-2.0",
+      "commit": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+      "url": "https://raw.githubusercontent.com/ShishirPatil/gorilla/6ea57973c7a6097fd7c5915698c54c17c5b1b6c8/berkeley-function-call-leaderboard/bfcl_eval/data/possible_answer/BFCL_v4_live_simple.json",
+      "sha256": "fec9cfa9744a936f9126981e85a2023da1e63e273eafebc81923a1162fad70ce",
+      "format": "jsonl",
+      "limit": 60,
+      "file": "bfcl_answers.jsonl",
+      "curated_sha256": "c4f243cfed8885da3e8a1f71365f60d3550d1d99c1f15e66fcc0d74871d1a934"
+    },
+    "tau_airline": {
+      "project": "tau2-bench airline tasks",
+      "license": "MIT",
+      "commit": "cf71a8070269883e38a365ffa85f78f46844c1f4",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/cf71a8070269883e38a365ffa85f78f46844c1f4/data/tau2/domains/airline/tasks.json",
+      "sha256": "ccd8ba737b4cc371415af70151187788f728d6108d0916e73bb4317b40542052",
+      "format": "json",
+      "limit": 30,
+      "file": "tau_airline.json",
+      "curated_sha256": "cdc4acc5bc90507243bf87f030c41982a30d2a62e21101b18c302aa4279386ad"
+    },
+    "agentdojo_vectors": {
+      "project": "AgentDojo workspace injection vectors",
+      "license": "MIT",
+      "commit": "089ed468cf3ed0322acc66b0211f26d9d90dbf60",
+      "url": "https://raw.githubusercontent.com/ethz-spylab/agentdojo/089ed468cf3ed0322acc66b0211f26d9d90dbf60/src/agentdojo/data/suites/workspace/injection_vectors.yaml",
+      "sha256": "3390ac3da090ea0fde5f50ef0a74bf260786b35ab6ff14d47a199ecb41a15489",
+      "format": "yaml",
+      "limit": null,
+      "file": "agentdojo_vectors.yaml",
+      "curated_sha256": "3390ac3da090ea0fde5f50ef0a74bf260786b35ab6ff14d47a199ecb41a15489"
+    },
+    "openai_human_preferences": {
+      "project": "OpenAI Learning to Summarize from Human Feedback",
+      "license": "See upstream dataset terms",
+      "commit": "public Azure dataset snapshot (2020-10-21)",
+      "url": "https://openaipublic.blob.core.windows.net/summarize-from-feedback/dataset/comparisons/batch18.json",
+      "sha256": "5008e223e287b4c38e434e270cf77301993adba70e1f87362f35fb928f83863a",
+      "format": "jsonl",
+      "limit": 100,
+      "file": "openai_human_preferences.jsonl",
+      "curated_sha256": "a249e20cc3433cded0ad685647ebd5e18a0502f92eacc58969994a07d449c51f"
+    },
+    "tau_voice_trace_1": {
+      "project": "tau2-bench recorded voice simulation",
+      "license": "MIT",
+      "commit": "cf71a8070269883e38a365ffa85f78f46844c1f4",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/cf71a8070269883e38a365ffa85f78f46844c1f4/tests/test_voice/test_interaction_metrics/testdata/experiment/simulations/49b22f0c-4a56-41c5-922f-bc2a56e53a23.json",
+      "sha256": "b93a43b9029c269219a08f2ff1de1afe7692998bf143c049a0adb4e56a5bfae0",
+      "format": "json_object",
+      "limit": null,
+      "file": "tau_voice_trace_1.json",
+      "curated_sha256": "b93a43b9029c269219a08f2ff1de1afe7692998bf143c049a0adb4e56a5bfae0"
+    },
+    "tau_voice_trace_2": {
+      "project": "tau2-bench recorded voice simulation",
+      "license": "MIT",
+      "commit": "cf71a8070269883e38a365ffa85f78f46844c1f4",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/cf71a8070269883e38a365ffa85f78f46844c1f4/tests/test_voice/test_interaction_metrics/testdata/experiment/simulations/7c6a3e3e-ac3f-406f-aea9-8cacb0a2e680.json",
+      "sha256": "110eb8d20658c59f3baabe8c6901e7fdbd66368fae17089437e4e94412e16ee4",
+      "format": "json_object",
+      "limit": null,
+      "file": "tau_voice_trace_2.json",
+      "curated_sha256": "110eb8d20658c59f3baabe8c6901e7fdbd66368fae17089437e4e94412e16ee4"
+    },
+    "tau_voice_trace_3": {
+      "project": "tau2-bench recorded voice simulation",
+      "license": "MIT",
+      "commit": "cf71a8070269883e38a365ffa85f78f46844c1f4",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/cf71a8070269883e38a365ffa85f78f46844c1f4/tests/test_voice/test_interaction_metrics/testdata/experiment/simulations/cd9c5ed2-9751-4c86-8dac-8a895a332e41.json",
+      "sha256": "64ef7119d1b2191099d3c68d49edb446a4507cdc47b2553428577e0087cf26b8",
+      "format": "json_object",
+      "limit": null,
+      "file": "tau_voice_trace_3.json",
+      "curated_sha256": "64ef7119d1b2191099d3c68d49edb446a4507cdc47b2553428577e0087cf26b8"
+    },
+    "openinference_otel_spans": {
+      "project": "Arize OpenInference Vercel v6 span fixtures",
+      "license": "Apache-2.0",
+      "commit": "5290b7b34040c140682f620772b2d6cf406f1bad",
+      "url": "https://raw.githubusercontent.com/Arize-ai/openinference/5290b7b34040c140682f620772b2d6cf406f1bad/js/packages/openinference-vercel/test/__fixtures__/v6-spans/all-spans.json",
+      "sha256": "137ddd06ad9df4be684f316d485e5c6321a71ae2049f20b293caf3838fcac252",
+      "format": "otel_js_flat_spans",
+      "limit": null,
+      "file": "openinference_otel_spans.json",
+      "curated_sha256": "137ddd06ad9df4be684f316d485e5c6321a71ae2049f20b293caf3838fcac252"
+    }
+  }
+}

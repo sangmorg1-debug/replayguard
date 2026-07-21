@@ -1,0 +1,10 @@
+{
+  "tools": [
+    {
+      "name":"weather.lookup",
+      "description":"Return current weather for an approved city identifier.",
+      "inputSchema":{"type":"object","properties":{"city_id":{"type":"string","pattern":"^[A-Z]{3}$"}},"required":["city_id"],"additionalProperties":false},
+      "annotations":{"readOnlyHint":true,"destructiveHint":false,"idempotentHint":true,"openWorldHint":false}
+    }
+  ]
+}

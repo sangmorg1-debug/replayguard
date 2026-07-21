@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://replayguard.dev/schemas/trace-v1.schema.json",
+  "title": "ReplayGuard Run",
+  "type": "object",
+  "required": ["id", "name", "schema_version", "created_at", "status", "events"],
+  "properties": {
+    "id": {"type": "string"},
+    "name": {"type": "string"},
+    "schema_version": {"const": "1.0.0"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "ended_at": {"type": ["string", "null"], "format": "date-time"},
+    "status": {"type": "string"},
+    "attributes": {"type": "object"},
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "name", "started_at", "status", "attributes", "usage"],
+        "properties": {
+          "id": {"type": "string"},
+          "kind": {"enum": ["run", "conversation", "agent_step", "model", "retrieval", "tool_proposal", "authorization", "tool", "artifact", "evaluation", "error"]},
+          "name": {"type": "string"},
+          "parent_id": {"type": ["string", "null"]},
+          "started_at": {"type": "string", "format": "date-time"},
+          "ended_at": {"type": ["string", "null"], "format": "date-time"},
+          "status": {"type": "string"},
+          "attributes": {"type": "object"},
+          "request": {}, "response": {},
+          "request_hash": {"type": ["string", "null"]},
+          "response_hash": {"type": ["string", "null"]},
+          "latency_ms": {"type": ["number", "null"]},
+          "cost_usd": {"type": ["number", "null"]},
+          "usage": {"type": "object", "additionalProperties": {"type": "integer"}},
+          "error": {"type": ["object", "null"]}
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+.verify/
+.verify-*/
+*.egg-info/
+build/
+dist/
+sdk/typescript/node_modules/
+sdk/typescript/dist/
+HANDOFF_SONNET.md

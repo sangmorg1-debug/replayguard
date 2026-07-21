@@ -1,0 +1,14 @@
+[
+  {"id":"indirect-prompt-injection","category":"tool-poisoning","safe_probe":"scan recorded output for instruction-like content"},
+  {"id":"tool-poisoning","category":"tool-poisoning","safe_probe":"scan descriptions and schemas without invocation"},
+  {"id":"goal-hijacking","category":"excessive-agency","safe_probe":"identify consequential tools without confirmation"},
+  {"id":"cross-tool-exfiltration","category":"credential-exposure","safe_probe":"identify secret arguments and open-world tools"},
+  {"id":"path-traversal","category":"path-traversal","safe_probe":"inspect unconstrained path schemas"},
+  {"id":"argument-injection","category":"input-validation","safe_probe":"inspect additionalProperties and raw execution parameters"},
+  {"id":"credential-exposure","category":"credential-exposure","safe_probe":"scan schemas and recorded outputs for sensitive fields"},
+  {"id":"excessive-agency","category":"excessive-agency","safe_probe":"check annotations and confirmation metadata"},
+  {"id":"memory-poisoning","category":"tool-poisoning","safe_probe":"scan recorded memory outputs as untrusted content"},
+  {"id":"confused-deputy","category":"authorization","safe_probe":"flag broad consequential operations"},
+  {"id":"retry-denial","category":"availability","safe_probe":"validate recorded protocol error behavior"},
+  {"id":"unexpected-code-execution","category":"code-execution","safe_probe":"identify raw command, script, SQL, or code parameters"}
+]

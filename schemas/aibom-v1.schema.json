@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://replayguard.dev/schemas/aibom-v1.schema.json",
+  "title": "ReplayGuard AIBOM 1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["bomFormat", "specVersion", "serialNumber", "metadata", "components", "dependencies", "digest"],
+  "properties": {
+    "bomFormat": {"const": "ReplayGuard-AIBOM"},
+    "specVersion": {"const": "1.0"},
+    "serialNumber": {"type": "string", "pattern": "^urn:uuid:"},
+    "metadata": {
+      "type": "object",
+      "required": ["timestamp", "application", "generation_context", "tool"],
+      "properties": {
+        "timestamp": {"type": "string", "format": "date-time"},
+        "application": {"type": "object", "required": ["name", "version"]},
+        "generation_context": {"type": "object"},
+        "tool": {"type": "object", "required": ["name", "version"]}
+      }
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "name"],
+        "properties": {
+          "type": {"enum": ["machine-learning-model", "prompt", "agent", "tool", "evaluation-suite", "data", "dataset", "library"]},
+          "name": {"type": "string", "minLength": 1}, "version": {"type": "string"}, "alias": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "license": {"type": ["string", "null"]},
+          "origin": {"type": "string"}, "properties": {"type": "object"}
+        }
+      }
+    },
+    "dependencies": {"type": "array", "items": {"type": "object", "required": ["from", "to"]}},
+    "digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

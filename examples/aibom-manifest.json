@@ -1,0 +1,14 @@
+{
+  "application": {"name": "example-rag-service", "version": "1.2.0"},
+  "generation_context": {"repository": "https://example.invalid/rag", "commit": "abc123", "environment": "staging"},
+  "models": [{"name": "answer-model", "version": "2026-06-01", "alias": "production"}],
+  "prompts": [{"name": "answer-with-citations", "version": "3", "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}],
+  "agents": [{"name": "support-agent", "version": "1"}],
+  "tools": [{"name": "vector-search", "version": "2"}],
+  "evaluation_suites": [{"name": "public-health-rag", "version": "1"}],
+  "retrieval_collections": [{"name": "health-index", "version": "2026-01"}],
+  "embedding_models": [{"name": "example-embed-v2", "version": "2"}],
+  "data_sources": [{"name": "WHO hand hygiene", "version": "2026-01", "origin": "https://www.who.int/teams/integrated-health-services/infection-prevention-control/hand-hygiene", "license": "WHO terms"}],
+  "packages": [{"name": "replayguard", "version": "0.1.0"}],
+  "dependencies": [{"from": "example-rag-service", "to": "answer-model"}]
+}

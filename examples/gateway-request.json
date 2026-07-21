@@ -1,0 +1,12 @@
+{
+  "user_id": "user-123",
+  "agent_id": "agent-coder",
+  "tool": "filesystem.read_file",
+  "action": "read",
+  "arguments": {"path": "README.md"},
+  "data_classification": "internal",
+  "environment": "development",
+  "task": "Read the project documentation",
+  "risk": "low",
+  "annotations": {"readOnlyHint": true, "destructiveHint": false, "openWorldHint": false}
+}

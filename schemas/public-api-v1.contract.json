@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "compatibility": "Operations cannot be removed or change method within major version 1.",
+  "operations": [
+    {"method": "GET", "path": "/livez"}, {"method": "GET", "path": "/readyz"}, {"method": "GET", "path": "/health"},
+    {"method": "POST", "path": "/v1/bootstrap"}, {"method": "POST", "path": "/v1/keys"},
+    {"method": "POST", "path": "/v1/traces"}, {"method": "GET", "path": "/v1/traces"},
+    {"method": "GET", "path": "/v1/traces/{trace_id}"}, {"method": "DELETE", "path": "/v1/traces/{trace_id}"},
+    {"method": "POST", "path": "/v1/suites"}, {"method": "GET", "path": "/v1/suites"},
+    {"method": "POST", "path": "/v1/baselines"}, {"method": "POST", "path": "/v1/reports"},
+    {"method": "GET", "path": "/v1/reports/{report_id}"}, {"method": "POST", "path": "/v1/datasets"},
+    {"method": "GET", "path": "/v1/datasets"}, {"method": "GET", "path": "/v1/summary"},
+    {"method": "GET", "path": "/v1/trends"}, {"method": "GET", "path": "/v1/export"},
+    {"method": "PUT", "path": "/v1/retention"}, {"method": "POST", "path": "/v1/retention/apply"},
+    {"method": "GET", "path": "/v1/audit"}, {"method": "GET", "path": "/v1/usage"},
+    {"method": "GET", "path": "/v1/slo"}, {"method": "PUT", "path": "/v1/analytics"},
+    {"method": "DELETE", "path": "/v1/workspace"}
+  ]
+}
