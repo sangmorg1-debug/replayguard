@@ -43,9 +43,45 @@ def test_deterministic_failure_cannot_be_hidden_by_model_grader():
         {"method": "exact", "expected": "right"},
         {"method": "model_grader", "votes": [True, True], "grader_model": "fixture", "prompt_version": "1"},
     ]
-    result = SuiteRunner().run(suite)
+    result = SuiteRunner().run(suite, {case.id: run})
     assert result.passed == 0
     assert result.deterministic_failures == 1
+
+
+def test_missing_candidate_does_not_silently_pass_configured_evaluations():
+    """A case with configured evaluations but no supplied candidate must not silently compare
+    the baseline against itself and report a pass - that hides real regressions whenever a
+    caller (e.g. the default GitHub Action) forgets to wire up a candidate map."""
+    run = run_with_response("original answer")
+    suite = RegressionSuite("gate")
+    case = suite.add_run(run)
+    case.evaluations = [{"method": "exact", "expected": "original answer"}]
+    result = SuiteRunner().run(suite)  # no candidates supplied
+    assert result.passed == 0
+    exact = next(item for item in result.results[0].evaluations if item.method == "exact")
+    assert exact.passed is None
+    assert "no candidate" in exact.message.lower()
+
+
+def test_supplying_the_unchanged_run_as_its_own_candidate_still_passes():
+    """The fail-closed behavior above must not block the legitimate case where a caller
+    explicitly re-confirms an unmodified candidate matches its baseline."""
+    run = run_with_response("original answer")
+    suite = RegressionSuite("gate")
+    case = suite.add_run(run)
+    case.evaluations = [{"method": "exact", "expected": "original answer"}]
+    result = SuiteRunner().run(suite, {case.id: run})
+    assert result.passed == 1
+
+
+def test_missing_candidate_leaves_baseline_only_budget_checks_unaffected():
+    """Suites with only suite-level budget/security limits and no case.evaluations legitimately
+    have nothing to compare a candidate against, so they must keep working without one."""
+    run = run_with_response("ok", cost=0.01, latency=10)
+    suite = RegressionSuite("budgets", baseline={"max_cost_usd": 1})
+    suite.add_run(run)
+    result = SuiteRunner().run(suite)
+    assert result.passed == 1
 
 
 def test_baseline_cost_latency_steps_and_security_constraints():

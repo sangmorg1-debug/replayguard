@@ -86,8 +86,17 @@ class SuiteRunner:
         results: list[CaseResult] = []
         for case in suite.cases:
             baseline = Run.from_dict(case.source_run)
+            has_candidate = case.id in candidates
             candidate = candidates.get(case.id, baseline)
-            evaluations = [self.evaluators.evaluate(candidate, spec) for spec in case.evaluations]
+            if case.evaluations and not has_candidate:
+                # Without a real candidate, "evaluating" would just compare the baseline to
+                # itself and trivially pass - silently hiding whatever actually changed.
+                evaluations = [EvaluationResult(spec["method"], None, None,
+                               "No candidate run was supplied for this case; behavior comparison "
+                               "is undetermined, not passing.", True, EvaluatorRegistry.VERSION)
+                               for spec in case.evaluations]
+            else:
+                evaluations = [self.evaluators.evaluate(candidate, spec) for spec in case.evaluations]
             evaluations.extend(self._baseline_evaluations(candidate, suite.baseline))
             deterministic = [item for item in evaluations if item.deterministic]
             deterministic_passed = all(item.passed is True for item in deterministic)
