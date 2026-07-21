@@ -44,6 +44,47 @@ def test_top_level_exception_message_is_redacted(tmp_path):
     assert "sk-abcdefghijklmnopqrstuvwxyz" not in error_events[0].error["message"]
 
 
+def test_async_decorators_await_and_capture_the_real_result(tmp_path):
+    import asyncio
+
+    @tool_call("async_lookup")
+    async def lookup(token):
+        await asyncio.sleep(0)
+        return {"authorization": token, "ok": True}
+
+    async def run():
+        with Recorder("async-capture", store=LocalStore(tmp_path), capture_content=True) as recorder:
+            result = await lookup("sk-abcdefghijklmnopqrstuvwxyz")
+        return recorder, result
+
+    recorder, result = asyncio.run(run())
+    assert result == {"authorization": "sk-abcdefghijklmnopqrstuvwxyz", "ok": True}
+    event = recorder.run.events[0]
+    assert event.status == "ok"
+    assert "sk-" not in repr(event.request)
+    assert "sk-" not in repr(event.response)
+
+
+def test_async_decorator_records_a_raised_exception(tmp_path):
+    import asyncio
+
+    @tool_call("async_failure")
+    async def fails():
+        await asyncio.sleep(0)
+        raise RuntimeError("boom")
+
+    async def run():
+        with Recorder("async-error", store=LocalStore(tmp_path)) as recorder:
+            try:
+                await fails()
+            except RuntimeError:
+                pass
+        return recorder
+
+    recorder = asyncio.run(run())
+    assert recorder.run.events[0].status == "error"
+
+
 def test_exact_replay_has_no_live_path(tmp_path):
     called = 0
     source = Run("source")

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import contextvars
 import functools
 import hashlib
@@ -81,7 +82,20 @@ def current_recorder() -> Recorder | None:
 
 
 def _instrument(kind: EventKind, name: str | None = None):
+    """Wraps a sync or async function. Async generators (streaming responses) are not supported;
+    the awaited function must return its complete result rather than yielding incrementally."""
     def decorate(function: Callable[..., T]) -> Callable[..., T]:
+        if asyncio.iscoroutinefunction(function):
+            @functools.wraps(function)
+            async def async_wrapped(*args, **kwargs):
+                recorder = current_recorder()
+                if recorder is None:
+                    return await function(*args, **kwargs)
+                request = {"args": args, "kwargs": kwargs}
+                with recorder.event(kind, name or function.__qualname__, request=request) as event:
+                    return recorder.set_response(event, await function(*args, **kwargs))
+            return async_wrapped
+
         @functools.wraps(function)
         def wrapped(*args, **kwargs):
             recorder = current_recorder()
