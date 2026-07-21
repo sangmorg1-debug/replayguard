@@ -24,9 +24,15 @@ here, and no workaround was attempted (bypassing it would defeat the point of th
 3. Confirm: PR #1 (`demo/passing-check`) shows the required check green; PR #2
    (`demo/blocking-check`) shows it red/blocked with the `exact`, `max_cost_usd`, and
    `security_invariant` failures visible in the job summary.
-4. Merge PR #1 once its check is confirmed green (it's a real, safe line-ending-normalization
-   change). Leave PR #2 open and unmerged — it exists only as the blocking-check artifact; delete
-   the `demo/blocking-check` branch afterward if you don't want it lingering.
+4. **Merge only the `.gitattributes` file from PR #1**, not the workflow change on that branch —
+   the branch wires a static candidate map into `.github/workflows/replayguard.yml` to prove a
+   genuine pass under the fixed (see below) semantics, and that wiring must not land on `main`
+   permanently: a frozen candidate map compared against every future PR forever would trivially
+   pass regardless of what actually changed, which is a different shape of the same false-green
+   problem this release fixed. Cherry-pick or manually re-apply just `.gitattributes`, or merge the
+   PR and immediately revert the workflow diff in a follow-up commit. Leave PR #2 open and
+   unmerged — it exists only as the blocking-check artifact; delete both demo branches afterward
+   once you're done with them.
 
 Heads-up: once `.gitattributes` (`* text=auto eol=lf`) merges, the next time any file with mixed
 line endings is touched, Git will show a renormalization diff (content unchanged, only line-ending
@@ -90,7 +96,14 @@ Executed 2026-07-21:
   resolved and both checks are re-run, **the real-PR demo is not actually complete** — the repo and
   PRs are real, but neither check has genuinely passed or blocked yet.
 - Local, non-GitHub-hosted proof remains valid and unaffected by this: `.verify/ship-demo/ci-passing/`
-  (`passed: true`, 106/106) and `.verify/ship-demo/ci-blocked/` (`passed: false`, exit 1, 105/106,
-  failing `exact`/`max_cost_usd`/`security_invariant` on case `bfcl:live_simple_0-0-0`), reproducible
-  via `python tools/build_ship_demo.py` and the two `verify ci` commands at the top of this repo's
-  `tools/build_ship_demo.py` docstring.
+  (`passed: true`, 106/106, against a real unchanged candidate map) and `.verify/ship-demo/ci-blocked/`
+  (`passed: false`, exit 1, 105/106, failing `exact`/`max_cost_usd`/`security_invariant` on case
+  `bfcl:live_simple_0-0-0`), reproducible via `python tools/build_ship_demo.py` and the two `verify
+  ci` commands at the top of this repo's `tools/build_ship_demo.py` docstring.
+- **Post-release code review fixed a false-green defect** in the gate these demos exercise: without
+  a supplied `--candidate-map`, `SuiteRunner` used to compare the baseline against itself and
+  silently pass — meaning the default GitHub Action, installed with no extra wiring, could report
+  SAFE TO MERGE regardless of what a PR actually changed. Both demo artifacts above and both demo
+  branches on GitHub were rebuilt against the fix (a case with configured evaluations and no real
+  candidate now reports undetermined, not a pass). See the "SuiteRunner silently passed cases with
+  no candidate supplied" commit on `main` and the updated demo branches.
