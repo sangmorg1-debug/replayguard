@@ -4,13 +4,23 @@
 ![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)
 
 Point ReplayGuard at OpenTelemetry traces you already have (Langfuse, Arize, Datadog, or any OTLP
-export), replay them offline with zero live side effects, and get ranked failure suspects. No
-re-instrumentation required. That is the wedge: **replay + failure diagnosis on existing traces**,
-benchmarked against Patronus AI's TRAIL dataset of 148 real human-annotated agent failures.
+export), reconstruct them offline with zero live side effects, and get ranked failure suspects. No
+re-instrumentation required. That is the wedge: **offline trace reconstruction + failure diagnosis
+on existing traces**, benchmarked against Patronus AI's TRAIL dataset of 148 real human-annotated
+agent failures.
 Everything else below (security scanning, the runtime gateway, RAG provenance, cost analysis, the
 compliance pack, the TypeScript SDK) is supporting surface around that one thing, not a second
 product. Start with [docs/QUICKSTART_DIAGNOSE.md](docs/QUICKSTART_DIAGNOSE.md), a runnable, verified
 walkthrough using a public, non-gated sample trace.
+
+**What "replay" means here:** ReplayGuard never re-executes the code, agent, or model calls that
+produced a trace. "Exact replay" materializes a new copy of the recorded events (fresh IDs and
+timestamps, identical request/response content) with zero live calls — it's trace reconstruction,
+not code re-execution. Selective/comparative replay can route specific named operations to a
+live adapter *you* supply, but nothing runs live unless you explicitly wire it up. If you're
+looking for VCR-style "re-run my program with recorded fixtures standing in for its I/O," that's
+not what this does — see [Record and replay your own code](#record-and-replay-your-own-code)
+for the actual mechanics.
 
 **Honest status:** every feature below is engineering-complete, but ReplayGuard has not yet been
 independently security-reviewed or used by a real design partner on a real failure; see
@@ -55,8 +65,9 @@ The full walkthrough with real example output is [docs/QUICKSTART_DIAGNOSE.md](d
 
 ## Record and replay your own code
 
-The lower-level SDK primitive everything else in this repo builds on: instrument your own code,
-record a run, then replay it later with zero live calls.
+The lower-level SDK primitive everything else in this repo builds on: instrument your own code to
+record a run (this step does execute your code, once, to capture what it did), then reconstruct
+that recorded run later with zero live calls and no re-execution of the original code.
 
 ```powershell
 .venv\Scripts\verify init

@@ -21,7 +21,11 @@ class ReplayResult:
 
 
 class Replayer:
-    """Replays recorded interactions. Exact mode has no live-call code path."""
+    """Reconstructs a recorded Run into a new Run with fresh ids/timestamps but identical
+    request/response content. This never re-executes the code, agent, or model calls that
+    produced the original recording - exact mode has no live-call code path at all. Selective
+    and comparative modes can route specific named operations to a caller-supplied `live`
+    adapter, but nothing runs live unless the caller explicitly wires it up."""
 
     def replay(self, source: Run, *, mode: ReplayMode = ReplayMode.EXACT,
                live: dict[str, Callable[[Any], Any]] | None = None,

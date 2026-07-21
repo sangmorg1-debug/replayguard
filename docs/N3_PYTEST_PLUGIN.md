@@ -3,6 +3,12 @@
 ReplayGuard is registered through pytest's `pytest11` entry-point group. Installing the package
 makes these fixtures available without a project `conftest.py`:
 
+**Note on `replayguard_replay`:** it reconstructs the already-recorded `Run` (fresh ids/timestamps,
+identical content) — it does not call `lookup` (or whatever function you recorded) a second time.
+`replayguard_record` is the only fixture that executes your code; `replayguard_replay` never does.
+This is why `replay.live_calls == 0` always holds for exact replay, not something the assertion
+is checking per-run.
+
 - `replayguard_store`: isolated temporary local store, or a persistent store selected with
   `--replayguard-store`.
 - `replayguard_record`: factory for locally redacted `Recorder` contexts.
