@@ -220,7 +220,7 @@ The rest of the surface (`otel`, `diagnose`, `suite`, `flaky`, `ci`, `serve`, `m
 
 ## Phase 1 scope and status
 
-Implemented: CLI, Python SDK, versioned language-neutral JSON schema, SQLite metadata, content-addressed payloads, opt-in content capture, redaction, exact/selective/comparative replay primitives, deterministic and explicitly probabilistic assertions, local comparison reports, retention control, and a 50-case corpus.
+Implemented: CLI, Python SDK, versioned language-neutral JSON schema, SQLite metadata, content-addressed payloads, opt-in content capture, redaction, exact/selective/comparative replay primitives, deterministic and explicitly probabilistic assertions, local comparison reports, retention control, and a 55-case corpus covering distinct recorder/replay/compare behaviors (timeouts and exceptions, redaction, structural and content diffs, boundary values, corruption detection) — see [`tests/test_corpus.py`](tests/test_corpus.py).
 
 Not honestly claimable from code alone: five design-partner installations, three replays of real failures, two measured debugging-time reductions, and benchmark gates on representative production workloads. These remain validation gates, not completed engineering tasks — see [`docs/L5_EXTERNAL_VALIDATION.md`](docs/L5_EXTERNAL_VALIDATION.md). (Phase 1's original scope also listed cross-language TypeScript support as open; that shipped later as the [TypeScript SDK](docs/X4_TYPESCRIPT_SDK.md) with a bidirectional Python/TS conformance suite.) See [`docs/PHASE1.md`](docs/PHASE1.md) for the original point-in-time record.
 
