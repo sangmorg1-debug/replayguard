@@ -115,26 +115,32 @@ diagnosis-adjacent signal in the codebase, not because it is part of the TRAIL d
 
 ## Competitive landscape (preserve honestly)
 
-- **Holistic Evaluation and Failure Diagnosis of AI Agents** (May 2026 paper) reports 61–64% on
-  TRAIL, but uses GPT-5.4 and a precision-like metric different from TRAIL's official macro-recall
-  scorer, and has no full public implementation to independently verify. Not directly comparable.
-- **Pisama** claims 59.9% for heuristic detectors. This is a vendor-published result with a private
-  mapper and a BSL (not fully open) license — should be independently reproduced before comparison,
-  which has not happened.
+- **Holistic Evaluation and Failure Diagnosis of AI Agents** (May 2026 paper) reports much larger
+  gains on TRAIL from per-span evaluation than this project's results. Neither the exact figure nor
+  its measurement protocol is verified against a pinned source in this repository — treat it as an
+  unverified external claim, not a number to cite as a direct comparison point.
+- **Pisama** claims 59.9% for heuristic detectors. This is a vendor-published result and should be
+  independently reproduced before comparison, which has not happened.
 - **MASPrism**'s artifact is currently unreproducible: its Zenodo v1.0.0 record is marked restricted
   with no downloadable files, and its linked GitHub repository returns 404. The independent
   paper-text reimplementation in this repo (Layer 2 above) is explicitly not claimed as a
   reproduction.
 
-None of these headline numbers is directly comparable to the TRAIL-released scorer results in this
-report. ReplayGuard's credible research target remains a reproducible hidden/domain-held-out result
-with cost, latency, precision, and code disclosed — not a higher public-corpus headline.
+None of these external results is directly comparable to the TRAIL-released scorer results in this
+report — none has been independently reproduced, and their measurement protocols are not confirmed
+to match TRAIL's official macro-recall scorer. ReplayGuard's credible research target remains a
+reproducible hidden/domain-held-out result with cost, latency, precision, and code disclosed — not
+a higher public-corpus headline borrowed from an unverified external claim.
 
 ## Conclusions
 
-1. The tiny local model beats the TRAIL paper's reported Gemini figure on the public corpus but is
-   **not statistically significant** in its improvement over the deterministic baseline once measured
-   with a paired bootstrap, and it **does not generalize** across the GAIA/SWE-Bench domain split.
+1. The tiny local model's macro-joint accuracy (14.91%) is essentially **tied with the deterministic
+   baseline (14.94%)** — it is not an improvement on that metric, and no significance test was run on
+   this comparison (unlike the meta-ranker-vs-claim-graph comparison in point 3, this one's
+   significance is simply unestablished, not established-but-narrow). Its real gain is in precision
+   and F1 (17.90%→29.95% precision, 11.41%→20.78% F1 on the out-of-fold evaluation), and its 14.91%
+   macro-joint accuracy does beat the TRAIL paper's reported ~11% combined Gemini figure. It also
+   **does not generalize** across the GAIA/SWE-Bench domain split.
 2. The claim/evidence graph (Layer 3) is the **only layer that improves standalone location F1 on
    every external corpus it was measured against** (TRAIL, TELBench, AgentRx) without training on
    any of them. It is training-free, makes no API calls, and cannot access gold labels or metadata.
