@@ -26,6 +26,35 @@ const identifier = () => globalThis.crypto.randomUUID().replaceAll("-", "");
 const object = (value: unknown): value is Record<string, unknown> => value !== null && typeof value === "object" && !Array.isArray(value);
 const date = (value: unknown): value is string => typeof value === "string" && !Number.isNaN(Date.parse(value));
 
+const REDACTED = "[REDACTED]";
+const SENSITIVE_KEYS = new Set(["authorization", "api_key", "apikey", "password", "passwd", "secret",
+  "token", "access_token", "refresh_token"]);
+const SECRET_PATTERNS: RegExp[] = [
+  /\bsk-[A-Za-z0-9_-]{16,}\b/g,
+  /\bgh[pousr]_[A-Za-z0-9]{20,}\b/g,
+  /\b(?:AKIA|ASIA)[A-Z0-9]{16}\b/g,
+  /\bBearer\s+[A-Za-z0-9._~+/=-]{12,}/gi,
+];
+
+function redact(value: JsonValue | undefined): JsonValue | undefined {
+  if (value === undefined) return undefined;
+  if (Array.isArray(value)) return value.map(item => redact(item) as JsonValue);
+  if (object(value)) {
+    const result: Record<string, JsonValue> = {};
+    for (const [key, item] of Object.entries(value))
+      result[key] = SENSITIVE_KEYS.has(key.toLowerCase()) ? REDACTED : (redact(item as JsonValue) as JsonValue);
+    return result;
+  }
+  if (typeof value !== "string") return value;
+  return SECRET_PATTERNS.reduce((text, pattern) => text.replace(pattern, REDACTED), value);
+}
+
+async function digest(value: JsonValue): Promise<string> {
+  const bytes = new TextEncoder().encode(JSON.stringify(value));
+  const hash = await globalThis.crypto.subtle.digest("SHA-256", bytes);
+  return Array.from(new Uint8Array(hash)).map(byte => byte.toString(16).padStart(2, "0")).join("");
+}
+
 export class TraceValidationError extends Error {}
 
 export function validateTrace(value: unknown): asserts value is TraceRun {
@@ -51,12 +80,20 @@ export function validateTrace(value: unknown): asserts value is TraceRun {
   }
 }
 
+export interface RecorderOptions {
+  /** Persist real request/response content on captured events. Off by default: only
+   *  redacted-then-hashed content is kept, matching the Python SDK's privacy-by-default posture. */
+  captureContent?: boolean;
+}
+
 export class Recorder {
   readonly run: TraceRun;
+  private readonly captureContent: boolean;
   constructor(name: string, attributes: Record<string, JsonValue> = {}, private readonly clock: Clock = now,
-              id: string = identifier()) {
+              id: string = identifier(), options: RecorderOptions = {}) {
     this.run = {id, name, schema_version: SCHEMA_VERSION, created_at: clock(), ended_at: null,
       status: "running", attributes: structuredClone(attributes), events: []};
+    this.captureContent = options.captureContent ?? false;
   }
   event(input: EventInput): TraceEvent {
     const started = input.started_at ?? this.clock();
@@ -72,13 +109,19 @@ export class Recorder {
   async capture<T extends JsonValue>(kind: EventKind, name: string, request: JsonValue,
                                      operation: () => Promise<T> | T): Promise<T> {
     const started = this.clock();
+    const safeRequest = redact(request) as JsonValue;
+    const request_hash = await digest(safeRequest);
     try {
       const response = await operation();
-      this.event({kind, name, request, response, started_at: started, ended_at: this.clock(), status: "ok"});
+      const safeResponse = redact(response) as JsonValue;
+      this.event({kind, name, started_at: started, ended_at: this.clock(), status: "ok",
+        request_hash, response_hash: await digest(safeResponse),
+        ...(this.captureContent ? {request: safeRequest, response: safeResponse} : {})});
       return response;
     } catch (cause) {
-      this.event({kind, name, request, started_at: started, ended_at: this.clock(), status: "error",
-        error: {type: cause instanceof Error ? cause.name : "Error", message: String(cause)}});
+      this.event({kind, name, started_at: started, ended_at: this.clock(), status: "error", request_hash,
+        ...(this.captureContent ? {request: safeRequest} : {}),
+        error: {type: cause instanceof Error ? cause.name : "Error", message: String(redact(String(cause)))}});
       throw cause;
     }
   }
