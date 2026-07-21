@@ -66,9 +66,12 @@ confidence, and evidence.
 
 ## What this is (and isn't) telling you
 
-- `suspects` (deterministic) is the production default: reproducible, benchmarked against TRAIL's
-  148 human-annotated traces (17.84% macro joint accuracy, 10.24% precision — see
-  `docs/N2_FAILURE_LOCALIZATION.md`), and safe to build automation on.
+- `suspects` (deterministic) is the CLI's stable default: same input always produces the same
+  output, and it's benchmarked against TRAIL's 148 human-annotated traces (17.84% macro joint
+  accuracy, **10.24% precision** — see `docs/N2_FAILURE_LOCALIZATION.md`). At that precision, roughly
+  9 in 10 flagged spans are not the actual root cause. Treat it as deterministic heuristic triage
+  that proposes spans for a human to look at — not as a signal accurate enough to gate automated
+  decisions or remediation on.
 - `experimental_claim_graph` is opt-in and advisory: a training-free signal that generalized across
   three independent benchmark corpora in research (`docs/RESEARCH_TRAIL_DIAGNOSIS.md`,
   `docs/DIAGNOSE_CLAIM_GRAPH.md`) but has not been validated on real production traces. Treat it as
