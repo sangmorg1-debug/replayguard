@@ -28,6 +28,11 @@ here, and no workaround was attempted (bypassing it would defeat the point of th
    change). Leave PR #2 open and unmerged — it exists only as the blocking-check artifact; delete
    the `demo/blocking-check` branch afterward if you don't want it lingering.
 
+Heads-up: once `.gitattributes` (`* text=auto eol=lf`) merges, the next time any file with mixed
+line endings is touched, Git will show a renormalization diff (content unchanged, only line-ending
+metadata). That's expected, not a regression — `git add --renormalize .` in a follow-up commit
+clears it in one pass if it's noisy.
+
 ## Remaining manual step 2: publish packages
 
 ### PyPI (`replayguard` 1.0.0)
