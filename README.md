@@ -1,5 +1,8 @@
 # ReplayGuard
 
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)
+
 Point ReplayGuard at OpenTelemetry traces you already have (Langfuse, Arize, Datadog, or any OTLP
 export), replay them offline with zero live side effects, and get ranked failure suspects. No
 re-instrumentation required. That is the wedge: **replay + failure diagnosis on existing traces**,
@@ -26,13 +29,36 @@ Pytest-native recording and exact replay are available through the automatically
 
 ReplayGuard is a local-first Python SDK and `verify` CLI for capturing AI/model and tool interactions, replaying them from fixtures without external side effects, and comparing behavior. Payload content is **off by default**; hashes and metadata are retained after local redaction.
 
+## Contents
+
+[Quick start](#quick-start) · [Record and replay your own code](#record-and-replay-your-own-code) · [Real public benchmark tests](#real-public-benchmark-tests) · [Regression suites and flakiness](#regression-suites-and-flakiness) · [GitHub Action and local CI](#github-action-and-local-ci) · [Self-hosted private beta](#self-hosted-private-beta) · [MCP compatibility and security scanner](#mcp-compatibility-and-security-scanner) · [Runtime agent security gateway](#runtime-agent-security-gateway) · [RAG reliability and provenance](#rag-reliability-and-provenance-phase-7) · [Cost per verified success](#cost-per-verified-success-phase-8) · [General-availability operations](#general-availability-operations-phase-9) · [Commands](#commands)
+
 ## Quick start
 
-Requires Python 3.11+.
+Requires Python 3.11+. This is the wedge above, run for real: import a real public OpenTelemetry
+trace sample and rank suspect spans — no API keys, no gated data.
 
 ```powershell
 python -m venv .venv
 .venv\Scripts\python -m pip install -e ".[dev]"
+.venv\Scripts\verify otel import tests\data\public\openinference_otel_spans.json
+```
+
+Copy one of the `imported_runs` IDs printed above, then:
+
+```powershell
+.venv\Scripts\verify diagnose RUN_ID --experimental-claim-graph
+```
+
+That's the whole loop: import traces you already have, get ranked suspects back, entirely offline.
+The full walkthrough with real example output is [docs/QUICKSTART_DIAGNOSE.md](docs/QUICKSTART_DIAGNOSE.md).
+
+## Record and replay your own code
+
+The lower-level SDK primitive everything else in this repo builds on: instrument your own code,
+record a run, then replay it later with zero live calls.
+
+```powershell
 .venv\Scripts\verify init
 .venv\Scripts\verify record examples/quickstart.py --capture-content
 .venv\Scripts\verify inspect
@@ -68,7 +94,7 @@ verify suite run my-suite.json
 verify flaky RUN_ID_1 RUN_ID_2 RUN_ID_3
 ```
 
-Generate the bundled 100+ case public suite with `python tools/build_public_suite.py`. Phase 2 implementation and gate evidence are recorded in `docs/PHASE2.md`.
+Generate the bundled 100+ case public suite with `python tools/build_public_suite.py`. Phase 2 implementation and gate evidence are recorded in [`docs/PHASE2.md`](docs/PHASE2.md).
 
 ## GitHub Action and local CI
 
@@ -86,7 +112,7 @@ With Docker and `act` installed, run the actual smoke workflow locally:
 act workflow_dispatch -W .github/workflows/replayguard-act.yml
 ```
 
-Phase 3 implementation, security decisions, and remaining external gates are documented in `docs/PHASE3.md`.
+Phase 3 implementation, security decisions, and remaining external gates are documented in [`docs/PHASE3.md`](docs/PHASE3.md).
 
 ## Self-hosted private beta
 
@@ -95,7 +121,7 @@ $env:REPLAYGUARD_MASTER_KEY = python -c "import secrets; print(secrets.token_url
 verify serve --allow-bootstrap --host 127.0.0.1 --port 8787
 ```
 
-Open `http://127.0.0.1:8787/docs`, create the initial workspace, securely save its one-time API key, and restart without `--allow-bootstrap`. See `docs/PHASE4.md` and `docs/PRIVACY.md` before using sensitive data.
+Open `http://127.0.0.1:8787/docs`, create the initial workspace, securely save its one-time API key, and restart without `--allow-bootstrap`. See [`docs/PHASE4.md`](docs/PHASE4.md) and [`docs/PRIVACY.md`](docs/PRIVACY.md) before using sensitive data.
 
 ## MCP compatibility and security scanner
 
@@ -126,7 +152,7 @@ Non-destructively discover a stdio server by passing its command as a JSON array
 verify mcp-scan --stdio-command '["npx","-y","@modelcontextprotocol/server-everything"]'
 ```
 
-Run untrusted server binaries in a disposable container or VM. See `docs/PHASE5.md` and `SECURITY.md` for limitations and responsible disclosure.
+Run untrusted server binaries in a disposable container or VM. See [`docs/PHASE5.md`](docs/PHASE5.md) and [`SECURITY.md`](SECURITY.md) for limitations and responsible disclosure.
 
 ## Runtime agent security gateway
 
@@ -136,7 +162,7 @@ Evaluate an action against a versioned policy:
 verify gateway check --policy examples/gateway-policy.json --request examples/gateway-request.json
 ```
 
-Set `REPLAYGUARD_APPROVAL_SECRET` to the same high-entropy value for every gateway process that issues or consumes approval tokens. Use `verify gateway approve`, `revoke`, and `audit` for human approvals, emergency revocation, and decision-chain verification. See `docs/PHASE6.md` before production use.
+Set `REPLAYGUARD_APPROVAL_SECRET` to the same high-entropy value for every gateway process that issues or consumes approval tokens. Use `verify gateway approve`, `revoke`, and `audit` for human approvals, emergency revocation, and decision-chain verification. See [`docs/PHASE6.md`](docs/PHASE6.md) before production use.
 
 ## RAG reliability and provenance (Phase 7)
 
@@ -148,7 +174,7 @@ verify rag aibom --manifest examples/aibom-manifest.json --output .verify/aibom.
 verify rag compare .verify/rag-report-v1.json .verify/rag-report-v2.json
 ```
 
-The bundled benchmark uses 100 real, manually annotated RAGTruth test responses pinned to an upstream commit. Refresh it with `python tools/fetch_ragtruth.py` and reproduce the gates with `python tools/benchmark_rag.py`. See `docs/PHASE7.md` for measured results, limitations, and the remaining external adoption gates.
+The bundled benchmark uses 100 real, manually annotated RAGTruth test responses pinned to an upstream commit. Refresh it with `python tools/fetch_ragtruth.py` and reproduce the gates with `python tools/benchmark_rag.py`. See [`docs/PHASE7.md`](docs/PHASE7.md) for measured results, limitations, and the remaining external adoption gates.
 
 ## Cost per verified success (Phase 8)
 
@@ -160,7 +186,7 @@ verify cost recommend --report .verify/cost-report.json --baseline candidate-1 -
 verify cost reconcile --records provider-billing-records.json --catalog price-catalog.json --tolerance 0.05
 ```
 
-Run `python tools/benchmark_cost.py` to reproduce the real OpenAI human-preference experiment. Price catalogs are immutable snapshots; verify current provider rates before production use. See `docs/PHASE8.md` for results and limitations.
+Run `python tools/benchmark_cost.py` to reproduce the real OpenAI human-preference experiment. Price catalogs are immutable snapshots; verify current provider rates before production use. See [`docs/PHASE8.md`](docs/PHASE8.md) for results and limitations.
 
 ## General-availability operations (Phase 9)
 
@@ -172,9 +198,11 @@ verify ga restore-copy --backup D:\replayguard-backups\daily.sqlite3 --output .v
 verify ga readiness --database .verify/recovery-test.sqlite3
 ```
 
-Review `docs/PHASE9.md`, `docs/API_VERSIONING.md`, `docs/INCIDENT_RESPONSE.md`, `docs/BACKUP_RECOVERY.md`, `docs/SELF_HOSTING.md`, and `docs/DATA_PROCESSING.md` before handling production data.
+Review [`docs/PHASE9.md`](docs/PHASE9.md), [`docs/API_VERSIONING.md`](docs/API_VERSIONING.md), [`docs/INCIDENT_RESPONSE.md`](docs/INCIDENT_RESPONSE.md), [`docs/BACKUP_RECOVERY.md`](docs/BACKUP_RECOVERY.md), [`docs/SELF_HOSTING.md`](docs/SELF_HOSTING.md), and [`docs/DATA_PROCESSING.md`](docs/DATA_PROCESSING.md) before handling production data.
 
 ## Commands
+
+Core record/replay primitives:
 
 - `verify init`: initialize `.verify/` with private-content defaults.
 - `verify record SCRIPT [--capture-content]`: execute and record an instrumented Python script.
@@ -185,8 +213,17 @@ Review `docs/PHASE9.md`, `docs/API_VERSIONING.md`, `docs/INCIDENT_RESPONSE.md`, 
 - `verify redact-check [FILE]`: fail if seeded secret patterns remain.
 - `verify prune --keep N`: enforce index retention.
 
+The rest of the surface (`otel`, `diagnose`, `suite`, `flaky`, `ci`, `serve`, `mcp-scan`,
+`mcp-monitor`, `gateway`, `rag`, `cost`, `threat-map`, `compliance-pack`, `scale-ingest`, `tap`,
+`ga`) is documented with examples in the sections above — run `verify --help` or
+`verify COMMAND --help` for the full flag reference.
+
 ## Phase 1 scope and status
 
 Implemented: CLI, Python SDK, versioned language-neutral JSON schema, SQLite metadata, content-addressed payloads, opt-in content capture, redaction, exact/selective/comparative replay primitives, deterministic and explicitly probabilistic assertions, local comparison reports, retention control, and a 50-case corpus.
 
-Not honestly claimable from code alone: five design-partner installations, three replays of real failures, two measured debugging-time reductions, cross-language TypeScript implementation, and benchmark gates on representative production workloads. These remain validation gates, not completed engineering tasks. See `docs/PHASE1.md`.
+Not honestly claimable from code alone: five design-partner installations, three replays of real failures, two measured debugging-time reductions, and benchmark gates on representative production workloads. These remain validation gates, not completed engineering tasks — see [`docs/L5_EXTERNAL_VALIDATION.md`](docs/L5_EXTERNAL_VALIDATION.md). (Phase 1's original scope also listed cross-language TypeScript support as open; that shipped later as the [TypeScript SDK](docs/X4_TYPESCRIPT_SDK.md) with a bidirectional Python/TS conformance suite.) See [`docs/PHASE1.md`](docs/PHASE1.md) for the original point-in-time record.
+
+## License
+
+[Apache License 2.0](LICENSE).
