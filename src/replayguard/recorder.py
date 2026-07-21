@@ -40,7 +40,8 @@ class Recorder:
         self.run.status = "error" if exc else "ok"
         if exc:
             self.run.events.append(Event(kind=EventKind.ERROR, name=type(exc).__name__, status="error",
-                                         ended_at=utcnow(), error={"type": type(exc).__name__, "message": str(exc)}))
+                                         ended_at=utcnow(), error={"type": type(exc).__name__,
+                                                                    "message": self.redactor.redact(str(exc))}))
         self.store.save_run(self.run)
         if self._token is not None:
             _active.reset(self._token)
