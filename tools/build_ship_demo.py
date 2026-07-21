@@ -2,10 +2,16 @@
 
 Reproduce:
     python tools/build_ship_demo.py
-    verify ci --suite examples/public-regression-suite.json --output .verify/ship-demo/ci-passing
+    verify ci --suite examples/public-regression-suite.json \
+        --candidate-map .verify/ship-demo/clean-candidate-map.json \
+        --output .verify/ship-demo/ci-passing
     verify ci --suite examples/public-regression-suite.json \
         --candidate-map .verify/ship-demo/regressed-candidate-map.json \
         --output .verify/ship-demo/ci-blocked
+
+A real --candidate-map is required for a genuine pass: every case in the public suite has a
+configured "exact" evaluation, and SuiteRunner now reports those as undetermined (not passing)
+when no candidate is supplied, rather than silently comparing the baseline against itself.
 """
 from __future__ import annotations
 
@@ -17,6 +23,16 @@ from replayguard.schema import Event, EventKind, Run
 ROOT = Path(__file__).resolve().parents[1]
 SUITE_PATH = ROOT / "examples/public-regression-suite.json"
 OUTPUT_DIR = ROOT / ".verify/ship-demo"
+
+
+def build_clean_candidate_map() -> Path:
+    """Every case mapped to its own unchanged source_run: a genuine, verified 'nothing changed'."""
+    suite = json.loads(SUITE_PATH.read_text(encoding="utf-8"))
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    path = OUTPUT_DIR / "clean-candidate-map.json"
+    path.write_text(json.dumps({case["id"]: case["source_run"] for case in suite["cases"]}), encoding="utf-8")
+    print(f"wrote {path} for {len(suite['cases'])} cases")
+    return path
 
 
 def build_regressed_candidate_map() -> Path:
@@ -43,4 +59,5 @@ def build_regressed_candidate_map() -> Path:
 
 
 if __name__ == "__main__":
+    build_clean_candidate_map()
     build_regressed_candidate_map()
