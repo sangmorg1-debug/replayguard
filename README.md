@@ -162,7 +162,7 @@ Evaluate an action against a versioned policy:
 verify gateway check --policy examples/gateway-policy.json --request examples/gateway-request.json
 ```
 
-Set `REPLAYGUARD_APPROVAL_SECRET` to the same high-entropy value for every gateway process that issues or consumes approval tokens. Use `verify gateway approve`, `revoke`, and `audit` for human approvals, emergency revocation, and decision-chain verification. **Concurrency is untested** — approval-token and audit-chain behavior under concurrent requests from multiple processes/threads has not been verified; treat as experimental under concurrent load. See [`docs/PHASE6.md`](docs/PHASE6.md) before production use.
+Set `REPLAYGUARD_APPROVAL_SECRET` to the same high-entropy value for every gateway process that issues or consumes approval tokens. Use `verify gateway approve`, `revoke`, and `audit` for human approvals, emergency revocation, and decision-chain verification. Approval consumption and audit-log writes are tested safe under concurrent same-machine access; a networked/replicated database has not been tested. See [`docs/PHASE6.md`](docs/PHASE6.md) before production use.
 
 ## RAG reliability and provenance (Phase 7)
 

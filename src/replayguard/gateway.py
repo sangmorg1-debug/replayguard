@@ -126,10 +126,15 @@ class RuntimeGateway:
         self._init()
 
     @contextmanager
-    def _connect(self):
-        db = sqlite3.connect(self.database); db.row_factory = sqlite3.Row
+    def _connect(self, *, immediate: bool = False):
+        db = sqlite3.connect(self.database, timeout=30); db.row_factory = sqlite3.Row
         try:
             with db:
+                # BEGIN IMMEDIATE acquires the write lock before any statement runs, closing
+                # the read-then-write window a deferred transaction would otherwise leave open
+                # between a SELECT of "current state" and the INSERT/UPDATE that depends on it.
+                if immediate:
+                    db.execute("BEGIN IMMEDIATE")
                 yield db
         finally:
             db.close()
@@ -324,14 +329,19 @@ class RuntimeGateway:
 
     def _consume_approval(self, request: ActionRequest, token: str) -> bool:
         digest = request.digest(); token_hash = hmac.new(self.approval_secret, token.encode(), hashlib.sha256).hexdigest()
+        now = _now()
         with self._connect() as db:
-            row = db.execute("SELECT id,expires_at FROM approvals WHERE request_digest=? AND token_hash=? AND used_at IS NULL", (digest, token_hash)).fetchone()
-            if not row or row["expires_at"] < _now(): return False
-            db.execute("UPDATE approvals SET used_at=? WHERE id=?", (_now(), row["id"]))
-        return True
+            # A single UPDATE...WHERE used_at IS NULL is the atomic check-and-consume: SQLite
+            # serializes writers, so at most one concurrent caller's UPDATE matches the row.
+            # A separate SELECT-then-UPDATE would let multiple callers all pass the check
+            # before any of them commits, double-spending a one-time approval.
+            cursor = db.execute(
+                "UPDATE approvals SET used_at=? WHERE request_digest=? AND token_hash=? AND used_at IS NULL AND expires_at>=?",
+                (now, digest, token_hash, now))
+        return cursor.rowcount == 1
 
     def _log(self, request: ActionRequest, decision: Decision) -> None:
-        with self._connect() as db:
+        with self._connect(immediate=True) as db:
             row = db.execute("SELECT entry_hash FROM decisions ORDER BY created_at DESC,id DESC LIMIT 1").fetchone()
             previous = row[0] if row else "0" * 64
             payload = self._log_payload(decision.id, decision.request_digest, decision.outcome, decision.policy_version, previous)

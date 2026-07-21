@@ -143,6 +143,34 @@ def test_policy_latency_p95_below_100ms(tmp_path):
     assert p95 < 100
 
 
+def test_concurrent_approval_consumption_only_succeeds_once(tmp_path):
+    """A one-time approval token must be consumable by exactly one concurrent caller - a
+    check-then-act race in _consume_approval would let multiple threads all read
+    'used_at IS NULL' before any of them commits the UPDATE, granting the same approval
+    to several concurrent destructive calls."""
+    import concurrent.futures
+    engine = gateway(tmp_path)
+    request = read_request(tool="custom.delete", action="delete", arguments={}, risk="high",
+                           idempotency_key="race", annotations={"destructiveHint": True, "openWorldHint": False})
+    first = engine.authorize(request)
+    token = engine.issue_approval(first.id)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=16) as pool:
+        results = list(pool.map(lambda _: engine.authorize(request, token), range(16)))
+    assert sum(item.allowed for item in results) == 1
+
+
+def test_concurrent_decisions_keep_the_audit_chain_valid(tmp_path):
+    """Concurrent _log calls must not both read the same 'latest entry_hash' before either
+    commits - that produces two decisions claiming the same prev_hash and breaks the
+    hash-chain invariant that verify_audit_chain checks."""
+    import concurrent.futures
+    engine = gateway(tmp_path)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=16) as pool:
+        list(pool.map(lambda i: engine.authorize(read_request(idempotency_key=str(i))), range(40)))
+    assert len(engine.decisions()) == 40
+    assert engine.verify_audit_chain()
+
+
 def test_gateway_cli_check_and_audit(tmp_path, capsys):
     database = tmp_path / "cli.sqlite3"
     assert main(["gateway","check","--policy",str(ROOT / "examples/gateway-policy.json"),

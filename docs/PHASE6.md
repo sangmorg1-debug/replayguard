@@ -11,7 +11,7 @@
 - Emergency user, agent, and tool revocation.
 - Callable gateway that never invokes denied actions and uses a separate adapter for sandbox decisions.
 - Complete human-readable decision explanations.
-- Redacted, hash-chained SQLite audit log and deterministic decision replay by request digest.
+- Redacted, hash-chained SQLite audit log and deterministic decision replay by request digest, safe under concurrent writers (atomic approval consumption, `BEGIN IMMEDIATE` chain writes).
 - Fail-closed behavior on policy or audit failure.
 - CLI for checks, approvals, revocations, and audit verification.
 
@@ -23,6 +23,7 @@
 - Tampering invalidates the audit chain.
 - Denied secrets are absent from decision output and the SQLite file.
 - Policy save, activation, and rollback are tested.
+- Approval consumption and audit-log writes are race-tested under 16 concurrent threads.
 - Gateway module coverage: 96%.
 - Full project suite: 124 passed, one opt-in network test skipped; 94% total coverage.
 
@@ -32,7 +33,7 @@ Run `python tools/benchmark_gateway.py` for current machine results. The test ga
 
 This is an in-process/CLI gateway foundation, not a hardened network appliance. Production deployment still requires authenticated network transport, durable distributed rate limiting, managed key storage, high-availability failover, clock controls, centralized approval UI, an actual sandbox implementation, load testing, and penetration testing.
 
-**Concurrency is untested.** The test suite exercises the gateway single-threaded; approval-token consumption and audit-chain writes have not been verified safe under concurrent requests from multiple agent processes or threads. Treat the gateway as experimental under concurrent load until this is hardened and tested — do not rely on it as the sole control for approval-replay prevention in a multi-process deployment.
+**Concurrency:** approval consumption is a single atomic `UPDATE ... WHERE used_at IS NULL`, and audit-log writes use `BEGIN IMMEDIATE` to close the read-then-write window between reading the chain's tail hash and inserting the next entry. Both are tested under 16 concurrent threads (`test_concurrent_approval_consumption_only_succeeds_once`, `test_concurrent_decisions_keep_the_audit_chain_valid` in `tests/test_phase6.py`) hitting a shared SQLite file. This covers same-machine multi-thread/multi-process concurrency via SQLite's own file locking; it has not been tested against a networked/replicated database, which multi-host deployment would require.
 
 Five staging teams, three production workloads, one paying security customer, and independent penetration testing require external deployments and cannot be satisfied by local automation.
 
