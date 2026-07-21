@@ -100,6 +100,17 @@ def test_call_never_executes_denied_and_routes_sandbox(tmp_path):
     assert decision.outcome == "sandbox" and value == "SANDBOX"
 
 
+def test_unrecognized_match_key_is_rejected_not_silently_ignored():
+    """A typo'd condition key (e.g. "enviroment") must not silently widen a rule to match
+    regardless of that condition - it must fail to load instead."""
+    try:
+        PolicySet({"version": "1", "rules": [
+            {"id": "typo", "match": {"enviroment": "development"}, "effect": "allow"}]})
+        assert False, "expected PolicySet to reject an unrecognized match key"
+    except ValueError as exc:
+        assert "enviroment" in str(exc)
+
+
 def test_policy_version_save_activate_and_rollback(tmp_path):
     root = tmp_path / "policies"
     first = PolicySet({"version":"1","rules":[]}); first.save_versioned(root)

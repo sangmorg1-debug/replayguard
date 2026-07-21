@@ -77,6 +77,9 @@ class Decision:
     def to_dict(self) -> dict[str, Any]: return asdict(self)
 
 
+MATCH_KEYS = {"max_risk", "user_id", "agent_id", "tool", "action", "environment", "data_classification", "location"}
+
+
 class PolicySet:
     def __init__(self, value: dict[str, Any]) -> None:
         self.value = value
@@ -86,6 +89,11 @@ class PolicySet:
         self.constraints = value.get("constraints", {})
         for rule in self.rules:
             if rule.get("effect") not in OUTCOMES: raise ValueError(f"invalid policy effect: {rule.get('effect')}")
+            unknown = set(rule.get("match", {})) - MATCH_KEYS
+            if unknown:
+                # A typo'd condition key (e.g. "enviroment") must not silently widen a rule to
+                # match regardless of that condition - fail to load instead of matching too much.
+                raise ValueError(f"unknown match key(s) in rule {rule.get('id', 'unnamed')!r}: {sorted(unknown)}")
 
     @classmethod
     def load(cls, path: str | Path) -> "PolicySet": return cls(json.loads(Path(path).read_text(encoding="utf-8")))
