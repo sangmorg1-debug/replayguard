@@ -4,10 +4,9 @@
 ![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)
 
 Point ReplayGuard at OpenTelemetry traces you already have (Langfuse, Arize, Datadog, or any OTLP
-export), reconstruct them offline with zero live side effects, and get ranked failure suspects. No
-re-instrumentation required. That is the wedge: **offline trace reconstruction + failure diagnosis
-on existing traces**, benchmarked against Patronus AI's TRAIL dataset of 148 real human-annotated
-agent failures.
+export), replay them offline with zero live side effects, and get ranked failure suspects. No
+re-instrumentation required. That is the wedge: **replay + failure diagnosis on existing traces**,
+benchmarked against Patronus AI's TRAIL dataset of 148 real human-annotated agent failures.
 Everything else below (security scanning, the runtime gateway, RAG provenance, cost analysis, the
 compliance pack, the TypeScript SDK) is supporting surface around that one thing, not a second
 product. Start with [docs/QUICKSTART_DIAGNOSE.md](docs/QUICKSTART_DIAGNOSE.md), a runnable, verified
