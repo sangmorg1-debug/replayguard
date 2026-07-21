@@ -150,6 +150,8 @@ def build_parser() -> argparse.ArgumentParser:
     otel = sub.add_parser("otel", help="import and export OTLP/OpenInference traces")
     otel_sub = otel.add_subparsers(dest="otel_command", required=True)
     otel_import = otel_sub.add_parser("import"); otel_import.add_argument("path")
+    otel_import.add_argument("--capture-content", action="store_true",
+                             help="persist real prompt/response content from imported spans (off by default, matching `verify record`)")
     otel_export = otel_sub.add_parser("export"); otel_export.add_argument("run_ids", nargs="+"); otel_export.add_argument("--output", required=True)
     otel_cov = otel_sub.add_parser("coverage"); otel_cov.add_argument("path")
     otel_round = otel_sub.add_parser("roundtrip"); otel_round.add_argument("path"); otel_round.add_argument("--output")
@@ -396,7 +398,7 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "otel":
             if args.otel_command in {"import", "coverage", "roundtrip"}:
                 document = json.loads(Path(args.path).read_text(encoding="utf-8"))
-                runs = import_traces(document)
+                runs = import_traces(document, capture_content=getattr(args, "capture_content", True))
             if args.otel_command == "import":
                 store.init()
                 for run in runs: store.save_run(run)

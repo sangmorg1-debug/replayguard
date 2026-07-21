@@ -91,6 +91,44 @@ def test_cli_import_export_coverage_and_roundtrip(tmp_path):
     assert output.exists()
 
 
+def content_bearing_document():
+    return {"resourceSpans": [{"resource": {}, "scopeSpans": [{"scope": {}, "spans": [{
+        "traceId": "f" * 32, "spanId": "1" * 16, "name": "chat", "startTimeUnixNano": "1700000000000000000",
+        "status": {"code": "STATUS_CODE_OK"},
+        "attributes": [{"key": "input.value", "value": {"stringValue": "What is my account balance, my token is sk-abcdefghijklmnopqrstuvwxyz?"}},
+                       {"key": "output.value", "value": {"stringValue": "Your balance is $42."}}],
+        "events": [], "links": []}]}]}]}
+
+
+def test_cli_otel_import_does_not_persist_content_by_default(tmp_path):
+    """verify otel import must not bypass the project's content-off-by-default privacy default:
+    real prompts/responses from a live trace export must not land unredacted in local storage
+    unless the caller explicitly opts in with --capture-content, matching `verify record`."""
+    store = tmp_path / "store"
+    document = tmp_path / "trace.json"
+    document.write_text(json.dumps(content_bearing_document()), encoding="utf-8")
+    assert main(["--store", str(store), "otel", "import", str(document)]) == 0
+    run_id = LocalStore(store).list_runs(limit=1)[0]["id"]
+    loaded = LocalStore(store).load_run(run_id)
+    blob = json.dumps(loaded.to_dict())
+    assert "account balance" not in blob
+    assert "Your balance is $42" not in blob
+    assert "sk-abcdefghijklmnopqrstuvwxyz" not in blob
+    assert loaded.events[0].request_hash and loaded.events[0].response_hash
+
+
+def test_cli_otel_import_capture_content_preserves_full_fidelity(tmp_path):
+    store = tmp_path / "store"
+    document = tmp_path / "trace.json"
+    document.write_text(json.dumps(content_bearing_document()), encoding="utf-8")
+    assert main(["--store", str(store), "otel", "import", str(document), "--capture-content"]) == 0
+    run_id = LocalStore(store).list_runs(limit=1)[0]["id"]
+    loaded = LocalStore(store).load_run(run_id)
+    assert loaded.events[0].response == "Your balance is $42."
+    # Even with content captured, known secret patterns are still redacted, same as `verify record`.
+    assert "sk-abcdefghijklmnopqrstuvwxyz" not in json.dumps(loaded.to_dict())
+
+
 def test_invalid_trace_shape_rejected():
     try: import_traces({"logs": []}); assert False
     except ValueError as exc: assert "expected OTLP" in str(exc)
