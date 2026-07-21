@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+import sqlite3
+
 from replayguard.assertions import Assertion
 from replayguard.compare import compare_runs
 from replayguard.recorder import Recorder, model_call, tool_call
 from replayguard.replay import ReplayMode, Replayer, assert_side_effect_free
-from replayguard.schema import EventKind, Run
+from replayguard.schema import Event, EventKind, Run
 from replayguard.storage import LocalStore
 
 
@@ -118,4 +120,43 @@ def test_assertions(tmp_path):
     assert Assertion("tool_called", target="search").evaluate(recorder.run).passed
     assert Assertion("tool_count", expected=1).evaluate(recorder.run).passed
     assert Assertion("no_unhandled_error").evaluate(recorder.run).passed
+
+
+def blob_paths(store: LocalStore) -> set:
+    return set(store.blobs.rglob("*.json"))
+
+
+def test_prune_deletes_the_pruned_runs_own_blob(tmp_path):
+    store = LocalStore(tmp_path)
+    for index in range(3):
+        run = Run(f"run-{index}", status="ok")
+        run.events.append(Event(EventKind.TOOL, "op", status="ok", response=f"unique-{index}"))
+        store.save_run(run)
+    assert len(blob_paths(store)) == 3
+    removed = store.prune(keep=1)
+    assert removed == 2
+    assert len(blob_paths(store)) == 1, "prune() deleted index rows but left the orphaned blob files on disk"
+
+
+def test_prune_keeps_a_blob_still_referenced_by_another_kept_run(tmp_path):
+    """Content-addressed storage dedupes identical content (put_blob skips writing a digest that
+    already exists) whenever two saved runs happen to serialize byte-identically - e.g. re-saving
+    the exact same run, or re-importing the same deterministically-ID'd OTel trace twice. Pruning
+    one index row that happens to share a blob with a still-kept row must not delete that blob."""
+    store = LocalStore(tmp_path)
+    run = Run("shared", id="fixed-id", status="ok")
+    run.events.append(Event(EventKind.TOOL, "op", status="ok", response="content", id="fixed-event-id"))
+    other = Run("other", status="ok")
+    other.events.append(Event(EventKind.TOOL, "op", status="ok", response="other content"))
+    store.save_run(run)
+    store.save_run(other)
+    # Re-saving the identical run dict again reuses the existing blob (put_blob is idempotent)
+    # rather than writing a second copy, simulating two distinct index rows sharing one blob.
+    reused_digest = store.put_blob(run.to_dict())
+    with sqlite3.connect(store.db_path) as db:
+        db.execute("INSERT INTO runs VALUES (?, ?, ?, ?, ?, ?)",
+                   ("second-row-same-blob", run.name, run.created_at, run.status, run.schema_version, reused_digest))
+    assert len(blob_paths(store)) == 2
+    store.prune(keep=2)  # keeps "other" and "second-row-same-blob"; prunes "shared"
+    assert len(blob_paths(store)) == 2, "pruning one row must not delete a blob another kept row still references"
 

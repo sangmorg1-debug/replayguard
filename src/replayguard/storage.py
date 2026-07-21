@@ -66,7 +66,15 @@ class LocalStore:
     def prune(self, keep: int) -> int:
         self.init()
         with sqlite3.connect(self.db_path) as db:
-            ids = [row[0] for row in db.execute("SELECT id FROM runs ORDER BY created_at DESC LIMIT -1 OFFSET ?", (keep,))]
+            pruned = db.execute("SELECT id, blob_hash FROM runs ORDER BY created_at DESC LIMIT -1 OFFSET ?", (keep,)).fetchall()
+            ids = [row[0] for row in pruned]
             db.executemany("DELETE FROM runs WHERE id = ?", ((item,) for item in ids))
+            candidate_hashes = {row[1] for row in pruned}
+            if candidate_hashes:
+                placeholders = ",".join("?" * len(candidate_hashes))
+                still_referenced = {row[0] for row in db.execute(
+                    f"SELECT DISTINCT blob_hash FROM runs WHERE blob_hash IN ({placeholders})", tuple(candidate_hashes))}
+                for digest in candidate_hashes - still_referenced:
+                    (self.blobs / digest[:2] / f"{digest}.json").unlink(missing_ok=True)
         return len(ids)
 
