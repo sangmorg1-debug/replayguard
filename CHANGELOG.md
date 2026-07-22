@@ -31,6 +31,42 @@ review + design-partner validation) is the open external gate this release exist
 - Fork-safe composite GitHub Action (`action.yml`) with a required-check-compatible exit status,
   Markdown job summary, and hash-addressed evidence bundle.
 
+### Fixed (pre-release hardening, ahead of the first tag)
+
+An external code review of this codebase found 8 real defects plus 3 items needing either a fix
+or an honest scope-down; all 11 are resolved below, each with a regression test that reproduces
+the original failure before fixing it.
+
+- Wheel installs (`pip install` from a built package, not `-e`) crashed on `verify rag aibom` and
+  `verify ga readiness` — schema files were resolved via a source-tree-relative path that doesn't
+  exist in an installed wheel. Bundled as package data, loaded via `importlib.resources`.
+- `Recorder.__exit__` stored the top-level exception's raw, unredacted message.
+- Async functions passed to `@model_call`/`@tool_call` were never awaited correctly.
+- `SuiteRunner` silently reported a case as passing when no candidate run was supplied (a
+  false-green CI gate) instead of failing closed on missing evidence.
+- `verify otel import` persisted full raw span content by default, bypassing this project's own
+  privacy-by-default convention; content capture is now opt-in (`--capture-content`), matching
+  `Recorder`.
+- `PolicySet` silently ignored unrecognized policy match keys (a typo'd condition would silently
+  widen a rule) instead of failing to load.
+- `LocalStore.prune()` deleted index rows but left the orphaned blob files on disk.
+- The TypeScript SDK's `Recorder.capture()` had no capture-mode gate or redaction at all, an
+  asymmetry with the Python privacy-by-default fix above. `RecorderOptions.captureContent` now
+  mirrors the Python convention (off by default, known-secret patterns and sensitive keys
+  redacted).
+- The runtime gateway's approval-token consumption and audit-log writes had real, reproduced
+  concurrency races (16 concurrent threads: 4 could consume a one-time approval; the audit hash
+  chain could break). Fixed with an atomic `UPDATE ... WHERE used_at IS NULL` and `BEGIN
+  IMMEDIATE` audit writes; both verified stable under repeated concurrent runs.
+- The 50+-case failure corpus (`tests/test_corpus.py`) built the same generic event for every
+  named "family," differing only by which label was attached — not real per-failure-mode
+  behavior. Rewritten so each family actually exhibits what its name claims (real raised
+  exceptions, real redaction, real `compare_runs` diffs, a real corrupted blob that `load_run`
+  must reject, real parent/child linkage).
+- "Replay" read like VCR-style code re-execution; exact replay is pure trace reconstruction and
+  never re-executes the original code. Clarified in the `Replayer` docstring, README, and
+  `docs/N3_PYTEST_PLUGIN.md`.
+
 ### Known gaps (stated, not hidden)
 
 - **The GitHub Action has never run in a real GitHub Actions environment before this release.**
@@ -45,3 +81,6 @@ review + design-partner validation) is the open external gate this release exist
 - Cross-domain validation for the semantic RAG judge (LLM-AggreFact/FaithBench) remains open;
   access conditions for those datasets have not yet been obtained.
 - Production-tap adoption is implementation-complete but not demand-validated (L2).
+- Gateway concurrency fixes above are tested under concurrent threads within one process; the
+  same file-level SQLite locking applies across separate OS processes by mechanism but that path
+  isn't separately tested, and a networked/replicated database is untested entirely.
