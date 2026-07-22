@@ -34,7 +34,8 @@ jobs:
         uses: ./
         with:
           suite: examples/public-regression-suite.json
-          changed-only: "true"
+          candidate-map: examples/ship-demo-clean-candidate-map.json
+          changed-only: "false"
       - name: Upload evidence
         if: always()
         uses: actions/upload-artifact@v4
