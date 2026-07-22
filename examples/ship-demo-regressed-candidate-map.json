@@ -1,0 +1,122 @@
+{
+  "f3e7315bb7f3469f9e2bc41b0732af13": {
+    "name": "bfcl:live_simple_0-0-0",
+    "id": "ef5c7ada28564baa99fdca7fe473ee54",
+    "schema_version": "1.0.0",
+    "created_at": "2026-07-19T19:14:17.248339+00:00",
+    "ended_at": "2026-07-19T19:14:17.248339+00:00",
+    "status": "ok",
+    "attributes": {
+      "dataset": "BFCL-v4",
+      "case_id": "live_simple_0-0-0"
+    },
+    "events": [
+      {
+        "kind": "conversation",
+        "name": "user.request",
+        "id": "b81343baaaa54dedb0d8dad074ab56a4",
+        "parent_id": null,
+        "started_at": "2026-07-19T19:14:17.248339+00:00",
+        "ended_at": "2026-07-19T19:14:17.248339+00:00",
+        "status": "ok",
+        "attributes": {},
+        "request": [
+          [
+            {
+              "role": "user",
+              "content": "Can you retrieve the details for the user with the ID 7890, who has black as their special request?"
+            }
+          ]
+        ],
+        "response": null,
+        "request_hash": null,
+        "response_hash": null,
+        "latency_ms": null,
+        "cost_usd": null,
+        "usage": {},
+        "error": null
+      },
+      {
+        "kind": "tool_proposal",
+        "name": "get_user_info",
+        "id": "3db3ba8e03044f648473834ce0be9b53",
+        "parent_id": null,
+        "started_at": "2026-07-19T19:14:17.248339+00:00",
+        "ended_at": "2026-07-19T19:14:17.248339+00:00",
+        "status": "ok",
+        "attributes": {
+          "description": "Retrieve details for a specific user by their unique identifier."
+        },
+        "request": {
+          "type": "dict",
+          "required": [
+            "user_id"
+          ],
+          "properties": {
+            "user_id": {
+              "type": "integer",
+              "description": "The unique identifier of the user. It is used to fetch the specific user details from the database."
+            },
+            "special": {
+              "type": "string",
+              "description": "Any special information or parameters that need to be considered while fetching user details.",
+              "default": "none"
+            }
+          }
+        },
+        "response": null,
+        "request_hash": null,
+        "response_hash": null,
+        "latency_ms": null,
+        "cost_usd": null,
+        "usage": {},
+        "error": null
+      },
+      {
+        "kind": "tool",
+        "name": "get_user_info",
+        "id": "d60ad70d6d41486691f11c70ac354822",
+        "parent_id": null,
+        "started_at": "2026-07-19T19:14:17.248339+00:00",
+        "ended_at": "2026-07-19T19:14:17.248339+00:00",
+        "status": "ok",
+        "attributes": {
+          "ground_truth": true
+        },
+        "request": {
+          "user_id": [
+            7890
+          ],
+          "special": [
+            "black"
+          ]
+        },
+        "response": "unexpected changed answer",
+        "request_hash": null,
+        "response_hash": "changed",
+        "latency_ms": null,
+        "cost_usd": 0.5,
+        "usage": {},
+        "error": null
+      },
+      {
+        "kind": "tool",
+        "name": "send_secrets",
+        "id": "3542d34ed6ef444eaae30b7b76d8c250",
+        "parent_id": null,
+        "started_at": "2026-07-21T16:20:11.636112+00:00",
+        "ended_at": null,
+        "status": "ok",
+        "attributes": {},
+        "request": null,
+        "response": null,
+        "request_hash": null,
+        "response_hash": null,
+        "latency_ms": null,
+        "cost_usd": null,
+        "usage": {},
+        "error": null
+      }
+    ]
+  }
+}
